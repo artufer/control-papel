@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control de Papel</title>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f6f8; color: #222; line-height: 1.4; padding: 16px; padding-bottom: 80px; }
+  header { background: linear-gradient(135deg, #2c5f8d, #1a3a5c); color: white; padding: 32px 20px; border-radius: 8px; margin-bottom: 16px; text-align: center; }
+  header h1 { font-size: 36px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 12px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+  header p { font-size: 22px; opacity: 1; font-weight: 500; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 6px; background: white; padding: 10px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .tab { padding: 10px 18px; border: 2px solid #2c5f8d; background: white; color: #2c5f8d; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.15s; }
+  .tab:hover { background: #e8f0f7; }
+  .tab.active { background: #2c5f8d; color: white; }
+  .panel { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 16px; display: none; }
+  .panel.active { display: block; }
+  .panel h2 { font-size: 20px; margin-bottom: 12px; color: #2c5f8d; }
+  .panel h3 { font-size: 16px; margin: 16px 0 8px; color: #444; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
+  th, td { padding: 8px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+  th { background: #f4f6f8; font-weight: 600; color: #444; }
+  tr:hover { background: #fafbfc; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  input, select, button { font-family: inherit; font-size: 14px; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; }
+  input:focus, select:focus { outline: none; border-color: #2c5f8d; }
+  button { background: #2c5f8d; color: white; border: none; cursor: pointer; padding: 8px 16px; border-radius: 4px; transition: background 0.15s; }
+  button:hover { background: #1a3a5c; }
+  button.secondary { background: #6c757d; }
+  button.danger { background: #c0392b; }
+  button.success { background: #27ae60; }
+  button.warning { background: #e67e22; }
+  button:disabled { background: #ccc; cursor: not-allowed; }
+  .form-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; margin-bottom: 12px; }
+  .form-group { display: flex; flex-direction: column; gap: 4px; align-items: center; min-width: 140px; }
+  .form-group label { font-size: 12px; color: #666; font-weight: 600; text-align: center; }
+  .form-group select, .form-group input { width: 100%; min-width: 140px; text-align: center; }
+  .summary-box { background: #e8f0f7; border-left: 4px solid #2c5f8d; padding: 12px; margin: 12px 0; border-radius: 4px; font-size: 14px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; background: #2c5f8d; color: white; margin-right: 4px; }
+  .badge.ok { background: #27ae60; }
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .empty { text-align: center; color: #999; padding: 20px; }
+  .carga-inicial { background: #fff3cd; border: 2px dashed #e67e22; padding: 24px; border-radius: 8px; text-align: center; }
+  .carga-inicial h2 { color: #e67e22; margin-bottom: 12px; }
+  .auto-save-indicator { position: fixed; top: 20px; right: 20px; background: #27ae60; color: white; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.2); opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; z-index: 1000; pointer-events: none; }
+  .auto-save-indicator.show { opacity: 1; transform: translateY(0); }
+  .auto-save-indicator.error { background: #c0392b; }
+  .leyenda { display: flex; flex-wrap: wrap; gap: 16px; margin: 12px 0; font-size: 13px; }
+  .ley-item { display: flex; align-items: center; gap: 6px; }
+  .ley-color { width: 16px; height: 16px; border-radius: 3px; border: 1px solid #ccc; }
+
+  .btn-subir {
+    position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px;
+    border-radius: 50%; background: #2c5f8d; color: white; border: none;
+    cursor: pointer; font-size: 22px; font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); display: flex;
+    align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transform: translateY(20px);
+    transition: all 0.3s ease; z-index: 999;
+  }
+  .btn-subir.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  .btn-subir:hover { background: #1a3a5c; transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.3); }
+
+  /* Cuadrícula de entrada */
+  .grid-entrada { overflow-x: auto; margin: 12px 0; border: 1px solid #ddd; border-radius: 6px; }
+  .grid-entrada table { border-collapse: collapse; font-size: 12px; width: auto; min-width: 100%; }
+  .grid-entrada th, .grid-entrada td { border: 1px solid #ddd; padding: 3px 2px; text-align: center; min-width: 30px; transition: background 0.1s; }
+  .grid-entrada th.maq-header { text-align: left; min-width: 140px; position: sticky; left: 0; background: #2c5f8d; color: white; z-index: 3; font-size: 11px; padding: 6px 8px; }
+  .grid-entrada td.maq-cell { text-align: left; font-weight: 600; position: sticky; left: 0; background: white; z-index: 2; white-space: nowrap; padding: 4px 8px; font-size: 11px; }
+  .grid-entrada th.dia-h { background: #2c5f8d; color: white; font-size: 10px; padding: 4px 2px; position: sticky; top: 0; z-index: 1; }
+  .grid-entrada th.dia-h .letra { font-size: 9px; opacity: 0.8; display: block; }
+  .grid-entrada th.dia-h.we { background: #c0392b; }
+  .grid-entrada td input { width: 26px; text-align: center; border: none; background: transparent; font-size: 12px; padding: 2px; font-weight: bold; }
+  .grid-entrada td input:focus { background: #fff176; outline: 2px solid #f57f17; }
+  .grid-entrada td input.tiene { background: #d4e6f1; }
+  .grid-entrada td.we-cell { background: #ffe0e0; }
+  .grid-entrada td.we-cell input { background: #ffe0e0; color: #999; cursor: not-allowed; }
+  .grid-entrada td.total-cell { background: #e8f0f7; font-weight: bold; min-width: 40px; }
+  .grid-entrada tr.total-row td { background: #2c5f8d; color: white; font-weight: bold; }
+  .grid-entrada tr.total-row td.maq-cell { background: #1a3a5c; }
+
+  /* Resaltado de fila y columna */
+  .grid-entrada tr.fila-activa td { background: #fff9c4 !important; }
+  .grid-entrada tr.fila-activa td.maq-cell {
+    background: #fff59d !important;
+    font-weight: bold;
+    border-left: 3px solid #f57f17;
+  }
+  .grid-entrada tr.fila-activa td.total-cell { background: #fff176 !important; }
+  .grid-entrada td.col-activa, .grid-entrada th.col-activa { background: #bbdefb !important; color: #0d47a1; }
+  .grid-entrada th.col-activa { font-weight: bold; }
+  .grid-entrada td.we-cell.col-activa { background: #ffcdd2 !important; color: #c62828; }
+  .grid-entrada td.total-cell.col-activa { background: #90caf9 !important; }
+  .grid-entrada tbody tr:not(.fila-activa):hover td { background: #f5f5f5; }
+  .grid-entrada tbody tr:not(.fila-activa):hover td.maq-cell { background: #eeeeee; font-weight: bold; }
+
+  /* Calendario */
+  .cal-table { border-collapse: collapse; font-size: 12px; width: 100%; }
+  .cal-table th, .cal-table td { border: 1px solid #ddd; padding: 4px; text-align: center; min-width: 28px; }
+  .cal-table th.maq-col { text-align: left; min-width: 140px; position: sticky; left: 0; background: #2c5f8d; color: white; z-index: 2; }
+  .cal-table td.maq-col { text-align: left; font-weight: 600; position: sticky; left: 0; background: white; z-index: 1; white-space: nowrap; }
+  .cal-table th.dia-header { background: #2c5f8d; color: white; font-size: 11px; }
+  .cal-table th.dia-header .dia-letra { font-size: 9px; opacity: 0.8; display: block; }
+  .cal-table th.dia-header.we { background: #c0392b; }
+  .cal-table td.con-sumo { background: #d4e6f1; font-weight: bold; }
+  .cal-table td.sin-sumo { background: #f4f6f8; color: #999; }
+  .cal-table td.we { background: #ffe0e0; color: #999; }
+  .cal-table td.total-maq { background: #e8f0f7; font-weight: bold; }
+  .cal-table tr.total-dia td { background: #2c5f8d; color: white; font-weight: bold; }
+  .cal-table tr.total-dia td.maq-col { background: #1a3a5c; }
+  .resumen-diario { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; margin-top: 12px; }
+  .dia-card { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 8px; text-align: center; }
+  .dia-card.we { background: #ffe0e0; opacity: 0.7; }
+  .dia-card.hoy { border: 2px solid #2c5f8d; background: #e8f0f7; }
+  .dia-card .dia-num { font-size: 20px; font-weight: bold; color: #2c5f8d; }
+  .dia-card .dia-info { font-size: 10px; color: #666; margin-top: 2px; }
+  .dia-card .dia-total { font-size: 14px; font-weight: bold; margin-top: 4px; }
+  .dia-card .dia-total.ok { color: #27ae60; }
+  .dia-card .dia-total.zero { color: #999; }
+
+  .entrada-form { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 16px; border: 1px solid #dee2e6; }
+  .entrada-form .form-group { align-items: flex-start; }
+  .entrada-form .form-group label { text-align: left; }
+  .entrada-form .form-group input { min-width: 200px; text-align: left; }
+  .entrada-item { background: white; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+  .entrada-item .fecha { font-weight: 600; color: #2c5f8d; min-width: 120px; }
+  .entrada-item .cajas { font-size: 18px; font-weight: bold; color: #27ae60; }
+  .entrada-item .notas { color: #666; font-style: italic; flex: 1; margin: 0 12px; }
+  .entrada-item .acciones { display: flex; gap: 4px; }
+  .entrada-item .acciones button { padding: 4px 8px; font-size: 12px; }
+  .total-entradas { background: #e8f0f7; padding: 12px; border-radius: 6px; margin-top: 12px; font-size: 16px; font-weight: 600; text-align: center; }
+
+  .festivos-selector { display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 4px; margin: 12px 0; }
+  .festivo-dia { padding: 8px 4px; text-align: center; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-size: 12px; background: white; transition: all 0.15s; }
+  .festivo-dia:hover { background: #e8f0f7; }
+  .festivo-dia.festivo { background: #c0392b; color: white; border-color: #c0392b; }
+  .festivo-dia.weekend { background: #f0f0f0; color: #999; cursor: not-allowed; }
+
+  #pdfContenido { background: white; font-family: Arial, sans-serif; }
+  .hoja-a4 { width: 277mm; min-height: 180mm; padding: 4mm; page-break-after: always; box-sizing: border-box; }
+  .hoja-a4:last-child { page-break-after: auto; }
+  .mes-bloque { margin-bottom: 6mm; }
+  .mes-bloque:last-child { margin-bottom: 0; }
+  .pdf-titulo-mes { font-size: 18px; font-weight: bold; text-align: center; margin-bottom: 3px; color: #000; letter-spacing: 1px; }
+  .pdf-tabla { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .pdf-tabla th, .pdf-tabla td { border: 1px solid #000; padding: 1px 2px; text-align: center; font-size: 8px; vertical-align: middle; height: 14px; }
+  .pdf-tabla th.maquina-header { text-align: left; background: #fff; font-size: 9px; width: 110px; min-width: 110px; padding-left: 3px; }
+  .pdf-tabla th.dia-header { font-size: 8px; font-weight: bold; }
+  .pdf-tabla th.dia-header.festivo-col { background: #ffe0e0; color: #c0392b; }
+  .pdf-tabla td.maquina-cell { text-align: left; font-weight: bold; font-size: 8px; padding-left: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pdf-tabla td.celda-x { background: #ffe0e0; color: #c0392b; font-weight: bold; font-size: 10px; }
+  .pdf-tabla td.celda-vacia { background: #fff; }
+  .pdf-tabla td.total-cell { font-weight: bold; background: #f0f0f0; }
+
+  @media print {
+    @page { size: A4 landscape; margin: 5mm; }
+    body { background: white; padding: 0; margin: 0; }
+    .tabs, .actions, button, .no-print, header, .panel:not(.print-only), .btn-subir { display: none !important; }
+    .panel.print-only { display: block !important; box-shadow: none; padding: 0; margin: 0; }
+    .hoja-a4 { page-break-after: always; width: 100%; min-height: auto; padding: 0; }
+    .hoja-a4:last-child { page-break-after: auto; }
+  }
+  @media screen { .panel.print-only { display: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📄 Control de Consumo de Papel</h1>
+  <p>Hoy es <span id="fechaHoy">...</span></p>
+</header>
+
+<div id="autoSaveIndicator" class="auto-save-indicator">💾 Guardado</div>
+<button class="btn-subir" id="btnSubir" title="Subir arriba" aria-label="Subir arriba">↑</button>
+
+<div id="appTabs" class="tabs" style="display:none">
+  <button class="tab active" data-tab="entrada">📝 Gasto</button>
+  <button class="tab" data-tab="papel">📥 Entrada de papel</button>
+  <button class="tab" data-tab="calendario">📆 Calendario</button>
+  <button class="tab" data-tab="listados">📋 Listados</button>
+  <button class="tab" data-tab="graficas">📊 Gráficas</button>
+  <button class="tab" data-tab="pdf">📄 Calendario PDF</button>
+  <button class="tab" data-tab="editar">✏️ Editar</button>
+  <button class="tab" data-tab="gestion">⚙️ Gestión</button>
+</div>
+
+<div class="panel active" id="panel-carga">
+  <div class="carga-inicial">
+    <h2>📂 Cargando datos...</h2>
+    <p>Intentando leer <b>datos_historicos.json</b>...</p>
+    <p id="cargaError" style="color:#c0392b;margin-top:12px"></p>
+    <div id="cargaManual" style="display:none;margin-top:16px">
+      <p>Selecciona el archivo manualmente:</p>
+      <input type="file" id="cargaJson" accept=".json">
+    </div>
+  </div>
+</div>
+
+<!-- GASTO (antes Entrada) CUADRÍCULA -->
+<div class="panel" id="panel-entrada">
+  <h2>📝 Gasto por Meses (cuadrícula completa)</h2>
+  <p style="color:#666;font-size:13px;margin-bottom:12px">Selecciona mes y año. Haz clic en cualquier celda para anotar el consumo. Los datos se guardan <b>automáticamente</b>. Los sábados y domingos están bloqueados (🚫). Al hacer clic se resalta la fila de la máquina y la columna del día.</p>
+  <div class="form-row">
+    <div class="form-group"><label>Mes</label><select id="selMes">
+      <option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option>
+      <option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option>
+      <option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option>
+      <option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
+    </select></div>
+    <div class="form-group"><label>Año</label><select id="selAnio"></select></div>
+  </div>
+  <div id="gridEntrada" class="grid-entrada"></div>
+  <div class="summary-box" id="resumenGrid">Selecciona mes y año.</div>
+  <div class="actions">
+    <button class="secondary" onclick="limpiarMesCompleto()">🧹 Limpiar todo el mes</button>
+  </div>
+</div>
+
+<!-- ENTRADA DE PAPEL -->
+<div class="panel" id="panel-papel">
+  <h2>📥 Registro de Entrada de Papel</h2>
+  <div class="entrada-form">
+    <h3 style="margin-top:0">➕ Nueva entrada</h3>
+    <div class="form-row">
+      <div class="form-group"><label>📅 Fecha</label><input type="date" id="entFecha"></div>
+      <div class="form-group"><label>📦 Cajas (1 caja = 5 paquetes)</label><input type="number" id="entCajas" min="0" step="0.1" placeholder="Ej: 10"></div>
+      <div class="form-group"><label>📝 Notas (opcional)</label><input type="text" id="entNotas" placeholder="Proveedor, albarán..."></div>
+      <div class="form-group"><label>&nbsp;</label><button class="success" onclick="guardarEntradaPapel()">💾 Guardar entrada</button></div>
+    </div>
+  </div>
+  <h3>📋 Historial de entradas</h3>
+  <div class="form-row" style="margin-bottom:8px">
+    <div class="form-group"><label>Filtrar por año</label><select id="filtroAnioEntradas"><option value="">Todos</option></select></div>
+  </div>
+  <div id="listaEntradas"></div>
+</div>
+
+<!-- CALENDARIO -->
+<div class="panel" id="panel-calendario">
+  <h2>📆 Calendario de Control</h2>
+  <div class="form-row">
+    <div class="form-group"><label>Mes</label><select id="calMes">
+      <option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option>
+      <option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option>
+      <option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option>
+      <option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
+    </select></div>
+    <div class="form-group"><label>Año</label><select id="calAnio"></select></div>
+    <div class="form-group"><label>Filtrar por máquina</label><select id="calMaq"><option value="">Todas</option></select></div>
+  </div>
+  <div class="leyenda">
+    <span class="ley-item"><span class="ley-color" style="background:#d4e6f1"></span>Con consumo</span>
+    <span class="ley-item"><span class="ley-color" style="background:#f4f6f8"></span>Sin consumo</span>
+    <span class="ley-item"><span class="ley-color" style="background:#ffe0e0"></span>Fin de semana</span>
+  </div>
+  <div id="calTabla" style="overflow-x:auto;margin-top:12px"></div>
+  <div id="calResumen" style="margin-top:20px"></div>
+</div>
+
+<!-- LISTADOS -->
+<div class="panel" id="panel-listados">
+  <h2>📋 Listados</h2>
+  <h3>📊 Por máquina (un mes o todos)</h3>
+  <div class="form-row">
+    <div class="form-group"><label>Máquina</label><select id="lstMaq"></select></div>
+    <div class="form-group"><label>Año</label><select id="lstAnio"><option value="">Todos</option></select></div>
+    <div class="form-group"><label>Mes</label><select id="lstMes">
+      <option value="">Todos los meses</option>
+      <option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option>
+      <option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option>
+      <option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option>
+      <option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
+    </select></div>
+    <div class="form-group"><label>&nbsp;</label><button onclick="renderListadoMaquina()">🔍 Ver</button></div>
+  </div>
+  <div id="lstMaqResult"></div>
+  <h3 style="margin-top:24px">📅 Todas las máquinas en un periodo</h3>
+  <div class="form-row">
+    <div class="form-group"><label>Año</label><select id="lstPAnio"><option value="">Todos</option></select></div>
+    <div class="form-group"><label>Mes</label><select id="lstPMes">
+      <option value="">Todo el periodo</option>
+      <option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option>
+      <option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option>
+      <option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option>
+      <option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
+    </select></div>
+    <div class="form-group"><label>&nbsp;</label><button onclick="renderListadoPeriodo()">🔍 Ver</button></div>
+  </div>
+  <div id="lstPerResult"></div>
+</div>
+
+<!-- GRÁFICAS -->
+<div class="panel" id="panel-graficas">
+  <h2>📊 Gráficas de Consumo</h2>
+  <h3>📈 Consumo por mes</h3>
+  <div class="form-row">
+    <div class="form-group"><label>Año</label><select id="grafAnio"><option value="">Todos</option></select></div>
+    <div class="form-group"><label>Máquina</label><select id="grafMaq"><option value="">Todas</option></select></div>
+    <div class="form-group"><label>&nbsp;</label><button onclick="renderGraficaMeses()">🔄 Actualizar</button></div>
+  </div>
+  <div style="position:relative;height:350px;margin-top:12px"><canvas id="chartMeses"></canvas></div>
+  <h3 style="margin-top:24px">📊 Consumo por máquina</h3>
+  <div class="form-row">
+    <div class="form-group"><label>Año</label><select id="grafAnio2"><option value="">Todos</option></select></div>
+    <div class="form-group"><label>&nbsp;</label><button onclick="renderGraficaMaquinas()">🔄 Actualizar</button></div>
+  </div>
+  <div style="position:relative;height:350px;margin-top:12px"><canvas id="chartMaquinas"></canvas></div>
+</div>
+
+<!-- CALENDARIO PDF TRIMESTRAL -->
+<div class="panel" id="panel-pdf">
+  <h2>📄 Calendario PDF Trimestral</h2>
+  <p style="color:#666;font-size:13px;margin-bottom:12px">Genera <b>4 hojas A4 horizontales</b> con 3 meses cada una. Solo días laborables en blanco, festivos y fines de semana marcados con <b style="color:#c0392b">X</b>.</p>
+  <div class="entrada-form">
+    <h3 style="margin-top:0;color:#2c5f8d">1️⃣ Selecciona el año</h3>
+    <div class="form-row">
+      <div class="form-group"><label>Año</label><select id="pdfAnio"></select></div>
+      <div class="form-group"><label>&nbsp;</label><button onclick="cargarFestivosAnio()">📅 Cargar festivos del año</button></div>
+    </div>
+  </div>
+  <div class="entrada-form">
+    <h3 style="margin-top:0">2️⃣ Marca los días festivos (haz clic para alternar)</h3>
+    <p style="font-size:12px;color:#666;margin-bottom:8px">Los festivos se guardan por mes y año. Los sábados y domingos no se pueden marcar.</p>
+    <div id="festivosContainer"></div>
+    <div class="actions">
+      <button class="secondary" onclick="limpiarFestivosAnio()">🧹 Quitar todos los festivos del año</button>
+    </div>
+  </div>
+  <div class="actions" style="margin-bottom:16px">
+    <button class="success" onclick="generarVistaPreviaTrimestral()">👁️ Generar vista previa</button>
+  </div>
+  <div id="pdfPreview"></div>
+</div>
+
+<div class="panel print-only" id="panel-print">
+  <div id="pdfContenido"></div>
+</div>
+
+<!-- EDITAR -->
+<div class="panel" id="panel-editar">
+  <h2>✏️ Editar Registros</h2>
+  <div class="form-row">
+    <div class="form-group"><label>Buscar</label><input type="text" id="buscar" placeholder="Máquina, fecha..." style="min-width:200px"></div>
+  </div>
+  <table id="tablaEditar"><thead><tr><th>Fecha</th><th>Máquina</th><th class="num">Paquetes</th><th>Acciones</th></tr></thead><tbody></tbody></table>
+</div>
+
+<!-- GESTIÓN -->
+<div class="panel" id="panel-gestion">
+  <h2>⚙️ Gestión de Datos</h2>
+  <h3>📊 Importar desde Excel</h3>
+  <p style="font-size:13px;color:#666;margin-bottom:8px">Selecciona tu archivo CONTROL DE PAPEL.xlsx</p>
+  <input type="file" id="excelInput" accept=".xlsx,.xls">
+  <div id="excelRevision" style="margin-top:12px"></div>
+  <h3 style="margin-top:24px">💾 Backup</h3>
+  <div class="actions">
+    <button onclick="exportarJSON()">📥 Exportar JSON</button>
+    <button onclick="document.getElementById('jsonInput').click()">📤 Importar JSON</button>
+    <input type="file" id="jsonInput" accept=".json" style="display:none">
+    <button class="danger" onclick="confirmarReset()">🗑️ Resetear</button>
+  </div>
+  <div style="margin-top:20px;padding:12px;background:#e8f0f7;border-radius:6px;font-size:13px">
+    <b>ℹ️ Guardado automático:</b> los datos se guardan en <code>datos_historicos.json</code> automáticamente al escribir un valor o hacer cualquier modificación.
+  </div>
+</div>
+
+<script>
+const HOJAS_POR_PAQ = 500;
+const PAQS_POR_CAJA = 5;
+const MESES_NOMBRE = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const DIAS_SEMANA = ['L','M','X','J','V','S','D'];
+const CANONICAS = ['DESARRROLLO RURAL','COLOR 2ª PLANTA','COOPERACIÓN','HALL 1ª PLANTA','FAMILIA','COORDINACIÓN','AYUDA A DOMICILIO','COLOR PLANTA BAJA','CONSUMO','MANTENIMIENTO'];
+
+let maquinas = CANONICAS.slice();
+let registros = [];
+let entradas = [];
+let festivos = {};
+let saveTimeout = null;
+
+// ============ BOTÓN SUBIR ARRIBA ============
+(function() {
+  const btn = document.getElementById('btnSubir');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+function mostrarIndicador(error = false) {
+  const ind = document.getElementById('autoSaveIndicator');
+  ind.textContent = error ? '❌ Error al guardar' : '💾 Guardado en JSON';
+  ind.className = 'auto-save-indicator show' + (error ? ' error' : '');
+  setTimeout(() => ind.className = 'auto-save-indicator', 2000);
+}
+
+async function guardarEnJSON() {
+  const data = { maquinas, registros, entradas };
+  try {
+    const res = await fetch('/guardar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (res.ok) mostrarIndicador(false);
+    else mostrarIndicador(true);
+  } catch(e) {
+    console.error('Error guardando:', e);
+    localStorage.setItem('controlPapel', JSON.stringify({maquinas, registros, entradas}));
+  }
+}
+
+function programarGuardado() {
+  clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(() => {
+    guardarEnJSON();
+    guardarFestivosLocal();
+  }, 600);
+}
+
+function guardarDatosLocal() {
+  localStorage.setItem('controlPapel', JSON.stringify({maquinas, registros, entradas}));
+  programarGuardado();
+}
+
+function guardarFestivosLocal() {
+  localStorage.setItem('festivos', JSON.stringify(festivos));
+}
+
+function hayDatos() { return registros.length > 0; }
+
+function normalizarDatos(d) {
+  const limpia = o => {
+    if (typeof o !== 'object' || o === null) return o;
+    if (Array.isArray(o)) return o.map(limpia);
+    return Object.fromEntries(Object.entries(o).map(([k,v])=>[k.trim(), limpia(v)]));
+  };
+  const r = limpia(d);
+  const maqsSet = new Set();
+  (r.maquinas||[]).forEach(m => maqsSet.add(String(m).trim()));
+  const maqsOrdenadas = CANONICAS.filter(m => maqsSet.has(m));
+  maqsSet.forEach(m => { if (!maqsOrdenadas.includes(m)) maqsOrdenadas.push(m); });
+  const regs = (r.registros||[]).map(x => {
+    const n = limpia(x);
+    return {y:+n.y, m:+n.m, d:+n.d, maquina:String(n.maquina||'').trim(), q:+n.q};
+  }).filter(x => x.y && x.m && x.d && x.maquina && x.q > 0);
+  const ents = (r.entradas||[]).map(x => {
+    const n = limpia(x);
+    return {fecha:String(n.fecha||'').trim(), cajas:+n.cajas||0, notas:String(n.notas||'').trim()};
+  }).filter(x => x.fecha && x.cajas > 0);
+  return {maquinas: maqsOrdenadas, registros: regs, entradas: ents};
+}
+
+async function cargarDesdeServidor() {
+  try {
+    const res = await fetch('/datos.json');
+    if (!res.ok) throw new Error('No encontrado');
+    const data = await res.json();
+    const n = normalizarDatos(data);
+    maquinas = n.maquinas;
+    registros = n.registros.sort((a,b)=>a.y-b.y||a.m-b.m||a.d-b.d);
+    entradas = n.entradas.sort((a,b)=>b.fecha.localeCompare(a.fecha));
+    const festRaw = localStorage.getItem('festivos');
+    if (festRaw) festivos = JSON.parse(festRaw);
+    guardarDatosLocal();
+    iniciarApp();
+  } catch(err) {
+    document.getElementById('cargaError').textContent = 'No se pudo conectar con el servidor: ' + err.message;
+  }
+}
+
+function iniciarApp() {
+  document.getElementById('panel-carga').classList.remove('active');
+  document.getElementById('appTabs').style.display = '';
+  document.getElementById('panel-entrada').classList.add('active');
+  initEntrada();
+  initEntradasPapel();
+  initCalendario();
+  initListados();
+  initGraficas();
+  initPDF();
+  initEditar();
+  initGestion();
+}
+
+(function() {
+  document.getElementById('fechaHoy').textContent = new Date().toLocaleDateString('es-ES', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+  const raw = localStorage.getItem('controlPapel');
+  if (raw) {
+    try {
+      const d = JSON.parse(raw);
+      const n = normalizarDatos(d);
+      maquinas = n.maquinas; registros = n.registros; entradas = n.entradas || [];
+      const festRaw = localStorage.getItem('festivos');
+      if (festRaw) festivos = JSON.parse(festRaw);
+      if (hayDatos()) { iniciarApp(); return; }
+    } catch(e) {}
+  }
+  cargarDesdeServidor();
+})();
+
+document.querySelectorAll('.tab').forEach(t => {
+  t.onclick = () => {
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('panel-'+t.dataset.tab).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (t.dataset.tab === 'entrada') renderGridEntrada();
+    if (t.dataset.tab === 'papel') renderEntradas();
+    if (t.dataset.tab === 'calendario') renderCalendario();
+    if (t.dataset.tab === 'graficas') initGraficas();
+    if (t.dataset.tab === 'pdf') initPDF();
+    if (t.dataset.tab === 'listados') renderListadoMaquina();
+    if (t.dataset.tab === 'editar') renderEditar();
+  };
+});
+
+function fmtCajas(total) {
+  const cajas = Math.floor(total / PAQS_POR_CAJA);
+  const sueltos = total % PAQS_POR_CAJA;
+  if (sueltos === 0) return `${cajas} cajas`;
+  return `${cajas} cajas + ${sueltos} paq.`;
+}
+function diasEnMes(y,m) { return new Date(y,m,0).getDate(); }
+function diaSemana(y,m,d) { const w = new Date(y,m-1,d).getDay(); return w===0?6:w-1; }
+function esFinde(y,m,d) { return diaSemana(y,m,d) >= 5; }
+function mesAnioDefecto() {
+  const hoy = new Date();
+  let mes = hoy.getMonth();
+  let anio = hoy.getFullYear();
+  if (mes === 0) { mes = 11; anio--; }
+  return { mes: mes + 1, anio };
+}
+function fechaHoyStr() {
+  const h = new Date();
+  return `${h.getFullYear()}-${String(h.getMonth()+1).padStart(2,'0')}-${String(h.getDate()).padStart(2,'0')}`;
+}
+
+// ============ GASTO (CUADRÍCULA) ============
+function initEntrada() {
+  const selA = document.getElementById('selAnio');
+  let htmlAnios = '';
+  for (let a = 2022; a <= 2030; a++) htmlAnios += `<option>${a}</option>`;
+  selA.innerHTML = htmlAnios;
+  const def = mesAnioDefecto();
+  selA.value = def.anio;
+  document.getElementById('selMes').value = def.mes;
+  document.getElementById('selMes').onchange = renderGridEntrada;
+  document.getElementById('selAnio').onchange = renderGridEntrada;
+  renderGridEntrada();
+}
+
+function renderGridEntrada() {
+  const y = +document.getElementById('selAnio').value;
+  const m = +document.getElementById('selMes').value;
+  const dias = diasEnMes(y, m);
+
+  let html = '<table><thead><tr><th class="maq-header">MÁQUINA</th>';
+  for (let d = 1; d <= dias; d++) {
+    const ds = diaSemana(y, m, d);
+    const we = ds >= 5;
+    html += `<th class="dia-h${we?' we':''}" data-col="${d}">${d}<span class="letra">${DIAS_SEMANA[ds]}</span></th>`;
+  }
+  html += '<th class="dia-h" style="background:#1a3a5c">TOTAL</th></tr></thead><tbody>';
+
+  const totalPorDia = {};
+  for (let d = 1; d <= dias; d++) totalPorDia[d] = 0;
+
+  maquinas.forEach(maq => {
+    let totalMaq = 0;
+    html += `<tr><td class="maq-cell">${maq}</td>`;
+    for (let d = 1; d <= dias; d++) {
+      const we = esFinde(y, m, d);
+      const reg = registros.find(r => r.y === y && r.m === m && r.d === d && r.maquina === maq);
+      const v = reg ? reg.q : 0;
+      totalMaq += v;
+      totalPorDia[d] += v;
+      if (we) {
+        html += `<td class="we-cell" data-col="${d}"><input type="text" value="X" disabled title="Fin de semana"></td>`;
+      } else {
+        html += `<td data-col="${d}"><input type="number" min="0" max="99" value="${v||''}" data-maq="${maq}" data-d="${d}" class="${v?'tiene':''}" onfocus="resaltarFilaColumna(this)" onblur="quitarResaltado()" oninput="actualizarCeldaGrid(this)"></td>`;
+      }
+    }
+    html += `<td class="total-cell" id="tot-${maq.replace(/\s+/g,'_').replace(/ª/g,'a')}">${totalMaq||''}</td></tr>`;
+  });
+
+  let granTotal = 0;
+  html += '<tr class="total-row"><td class="maq-cell">TOTAL DÍA</td>';
+  for (let d = 1; d <= dias; d++) {
+    const we = esFinde(y, m, d);
+    granTotal += totalPorDia[d];
+    if (we) html += `<td data-col="${d}"></td>`;
+    else html += `<td data-col="${d}">${totalPorDia[d]||''}</td>`;
+  }
+  html += `<td id="granTotal">${granTotal||''}</td></tr>`;
+  html += '</tbody></table>';
+
+  document.getElementById('gridEntrada').innerHTML = html;
+  actualizarResumenGrid(y, m);
+}
+
+function resaltarFilaColumna(input) {
+  const d = +input.dataset.d;
+  const tr = input.closest('tr');
+  const table = input.closest('table');
+  table.querySelectorAll('.fila-activa').forEach(el => el.classList.remove('fila-activa'));
+  table.querySelectorAll('.col-activa').forEach(el => el.classList.remove('col-activa'));
+  tr.classList.add('fila-activa');
+  table.querySelectorAll(`[data-col="${d}"]`).forEach(el => el.classList.add('col-activa'));
+}
+
+function quitarResaltado() {
+  const table = document.querySelector('.grid-entrada table');
+  if (table) {
+    table.querySelectorAll('.fila-activa').forEach(el => el.classList.remove('fila-activa'));
+    table.querySelectorAll('.col-activa').forEach(el => el.classList.remove('col-activa'));
+  }
+}
+
+function actualizarCeldaGrid(input) {
+  const maq = input.dataset.maq;
+  const d = +input.dataset.d;
+  const v = +input.value || 0;
+  const y = +document.getElementById('selAnio').value;
+  const m = +document.getElementById('selMes').value;
+
+  input.classList.toggle('tiene', v > 0);
+
+  if (v > 0) {
+    const idx = registros.findIndex(r => r.y === y && r.m === m && r.d === d && r.maquina === maq);
+    if (idx >= 0) registros[idx].q = v;
+    else registros.push({y, m, d, maquina: maq, q: v});
+  } else {
+    const idx = registros.findIndex(r => r.y === y && r.m === m && r.d === d && r.maquina === maq);
+    if (idx >= 0) registros.splice(idx, 1);
+  }
+  registros.sort((a,b) => a.y - b.y || a.m - b.m || a.d - b.d);
+
+  recalcularTotales(y, m);
+  actualizarResumenGrid(y, m);
+  guardarDatosLocal();
+}
+
+function recalcularTotales(y, m) {
+  const dias = diasEnMes(y, m);
+  const totalPorDia = {};
+  for (let d = 1; d <= dias; d++) totalPorDia[d] = 0;
+
+  maquinas.forEach(maq => {
+    let totalMaq = 0;
+    for (let d = 1; d <= dias; d++) {
+      if (esFinde(y, m, d)) continue;
+      const reg = registros.find(r => r.y === y && r.m === m && r.d === d && r.maquina === maq);
+      const v = reg ? reg.q : 0;
+      totalMaq += v;
+      totalPorDia[d] += v;
+    }
+    const totEl = document.getElementById('tot-' + maq.replace(/\s+/g,'_').replace(/ª/g,'a'));
+    if (totEl) totEl.textContent = totalMaq || '';
+  });
+
+  const totalRow = document.querySelector('.grid-entrada .total-row');
+  if (totalRow) {
+    const cells = totalRow.querySelectorAll('td');
+    let idx = 1;
+    for (let d = 1; d <= dias; d++) {
+      if (esFinde(y, m, d)) { idx++; continue; }
+      if (cells[idx]) cells[idx].textContent = totalPorDia[d] || '';
+      idx++;
+    }
+    const granEl = document.getElementById('granTotal');
+    if (granEl) granEl.textContent = Object.values(totalPorDia).reduce((a,b)=>a+b,0) || '';
+  }
+}
+
+function actualizarResumenGrid(y, m) {
+  const dias = diasEnMes(y, m);
+  let total = 0;
+  maquinas.forEach(maq => {
+    for (let d = 1; d <= dias; d++) {
+      const reg = registros.find(r => r.y === y && r.m === m && r.d === d && r.maquina === maq);
+      if (reg) total += reg.q;
+    }
+  });
+  document.getElementById('resumenGrid').innerHTML =
+    `<b>${MESES_NOMBRE[m]} ${y}</b> · <b>${total}</b> paquetes · ${(total*HOJAS_POR_PAQ).toLocaleString('es-ES')} hojas · ${fmtCajas(total)}<br>
+    <span style="color:#27ae60;font-size:12px">✓ Guardado automáticamente en datos_historicos.json</span>`;
+}
+
+function limpiarMesCompleto() {
+  if (!confirm('¿Borrar TODOS los datos de este mes para TODAS las máquinas?')) return;
+  const y = +document.getElementById('selAnio').value;
+  const m = +document.getElementById('selMes').value;
+  registros = registros.filter(r => !(r.y === y && r.m === m));
+  guardarDatosLocal();
+  renderGridEntrada();
+}
+
+// ============ ENTRADA DE PAPEL ============
+function initEntradasPapel() {
+  document.getElementById('entFecha').value = fechaHoyStr();
+  const anios = [...new Set(entradas.map(e => e.fecha.substring(0,4)))].sort().reverse();
+  const hoy = new Date().getFullYear();
+  if (!anios.includes(String(hoy))) anios.unshift(String(hoy));
+  document.getElementById('filtroAnioEntradas').innerHTML = '<option value="">Todos</option>' + anios.map(a => `<option>${a}</option>`).join('');
+  document.getElementById('filtroAnioEntradas').onchange = renderEntradas;
+}
+
+function guardarEntradaPapel() {
+  const fecha = document.getElementById('entFecha').value;
+  const cajas = parseFloat(document.getElementById('entCajas').value);
+  const notas = document.getElementById('entNotas').value.trim();
+  if (!fecha) { alert('⚠️ Selecciona una fecha'); return; }
+  if (!cajas || cajas <= 0) { alert('⚠️ Introduce un número válido de cajas'); return; }
+  const nueva = { fecha, cajas, notas };
+  entradas.unshift(nueva);
+  entradas.sort((a,b) => b.fecha.localeCompare(a.fecha));
+  guardarDatosLocal();
+  document.getElementById('entCajas').value = '';
+  document.getElementById('entNotas').value = '';
+  document.getElementById('entFecha').value = fechaHoyStr();
+  renderEntradas();
+  alert(`✅ Entrada guardada: ${cajas} cajas el ${formatearFecha(fecha)}`);
+}
+
+function formatearFecha(fechaStr) {
+  const [y,m,d] = fechaStr.split('-').map(Number);
+  return `${d.toString().padStart(2,'0')}/${m.toString().padStart(2,'0')}/${y}`;
+}
+
+function renderEntradas() {
+  const filtroAnio = document.getElementById('filtroAnioEntradas').value;
+  const filtradas = entradas.filter(e => !filtroAnio || e.fecha.startsWith(filtroAnio));
+  if (filtradas.length === 0) {
+    document.getElementById('listaEntradas').innerHTML = '<div class="empty">No hay entradas registradas</div>';
+    return;
+  }
+  const totalCajas = filtradas.reduce((a,e) => a + e.cajas, 0);
+  const totalPaq = totalCajas * PAQS_POR_CAJA;
+  let html = `<div class="total-entradas">📦 Total: ${totalCajas} cajas = ${totalPaq} paquetes = ${(totalPaq*HOJAS_POR_PAQ).toLocaleString('es-ES')} hojas</div>`;
+  html += '<div style="margin-top:12px">';
+  filtradas.forEach((e, i) => {
+    const idxReal = entradas.indexOf(e);
+    const [y,m,d] = e.fecha.split('-').map(Number);
+    const ds = DIAS_SEMANA[diaSemana(y,m,d)];
+    const we = diaSemana(y,m,d) >= 5;
+    const paq = e.cajas * PAQS_POR_CAJA;
+    html += `<div class="entrada-item" style="${we?'background:#fff5f5':''}">
+      <div class="fecha">${formatearFecha(e.fecha)}<br><small style="color:#666;font-weight:normal">${ds}</small></div>
+      <div class="cajas">${e.cajas} caja${e.cajas!==1?'s':''}<br><small style="color:#666;font-weight:normal;font-size:12px">${paq} paq.</small></div>
+      <div class="notas">${e.notas || '—'}</div>
+      <div class="acciones">
+        <button class="secondary" onclick="editarEntrada(${idxReal})" title="Editar">✏️</button>
+        <button class="danger" onclick="borrarEntrada(${idxReal})" title="Borrar">🗑️</button>
+      </div>
+    </div>`;
+  });
+  html += '</div>';
+  document.getElementById('listaEntradas').innerHTML = html;
+}
+
+function editarEntrada(idx) {
+  const e = entradas[idx];
+  document.getElementById('entFecha').value = e.fecha;
+  document.getElementById('entCajas').value = e.cajas;
+  document.getElementById('entNotas').value = e.notas || '';
+  entradas.splice(idx, 1);
+  guardarDatosLocal();
+  renderEntradas();
+  document.querySelector('.entrada-form').scrollIntoView({behavior:'smooth'});
+}
+
+function borrarEntrada(idx) {
+  const e = entradas[idx];
+  if (!confirm(`¿Borrar entrada del ${formatearFecha(e.fecha)} (${e.cajas} cajas)?`)) return;
+  entradas.splice(idx, 1);
+  guardarDatosLocal();
+  renderEntradas();
+}
+
+// ============ CALENDARIO ============
+function initCalendario() {
+  const anios = [...new Set(registros.map(r => r.y))].sort();
+  const hoy = new Date();
+  if (!anios.includes(hoy.getFullYear())) anios.push(hoy.getFullYear());
+  document.getElementById('calAnio').innerHTML = anios.map(a => `<option>${a}</option>`).join('');
+  const def = mesAnioDefecto();
+  document.getElementById('calAnio').value = def.anio;
+  document.getElementById('calMes').value = def.mes;
+  document.getElementById('calMaq').innerHTML = '<option value="">Todas</option>' + maquinas.map(m => `<option>${m}</option>`).join('');
+  document.getElementById('calMes').onchange = renderCalendario;
+  document.getElementById('calAnio').onchange = renderCalendario;
+  document.getElementById('calMaq').onchange = renderCalendario;
+  renderCalendario();
+}
+
+function renderCalendario() {
+  const y = +document.getElementById('calAnio').value;
+  const m = +document.getElementById('calMes').value;
+  const maqFiltro = document.getElementById('calMaq').value;
+  const dias = diasEnMes(y, m);
+  const maqs = maqFiltro ? [maqFiltro] : maquinas;
+  let html = '<table class="cal-table"><thead><tr><th class="maq-col">MÁQUINA</th>';
+  for (let d = 1; d <= dias; d++) {
+    const ds = diaSemana(y, m, d);
+    const we = ds >= 5;
+    html += `<th class="dia-header${we ? ' we' : ''}">${d}<span class="dia-letra">${DIAS_SEMANA[ds]}</span></th>`;
+  }
+  html += '<th class="dia-header" style="background:#1a3a5c">TOTAL</th></tr></thead><tbody>';
+  const totalPorDia = {};
+  for (let d = 1; d <= dias; d++) totalPorDia[d] = 0;
+  maqs.forEach(maq => {
+    let totalMaq = 0;
+    html += `<tr><td class="maq-col">${maq}</td>`;
+    for (let d = 1; d <= dias; d++) {
+      const reg = registros.find(r => r.y === y && r.m === m && r.d === d && r.maquina === maq);
+      const v = reg ? reg.q : 0;
+      const we = diaSemana(y, m, d) >= 5;
+      totalMaq += v;
+      totalPorDia[d] += v;
+      if (we) html += `<td class="we"></td>`;
+      else if (v > 0) html += `<td class="con-sumo">${v}</td>`;
+      else html += `<td class="sin-sumo"></td>`;
+    }
+    html += `<td class="total-maq">${totalMaq}</td></tr>`;
+  });
+  let granTotal = 0;
+  html += '<tr class="total-dia"><td class="maq-col">TOTAL DÍA</td>';
+  for (let d = 1; d <= dias; d++) {
+    granTotal += totalPorDia[d];
+    html += `<td>${totalPorDia[d] || ''}</td>`;
+  }
+  html += `<td>${granTotal}</td></tr></tbody></table>`;
+  document.getElementById('calTabla').innerHTML = html;
+  const hoy = new Date();
+  let resumenHtml = '<h3 style="margin-top:20px;color:#2c5f8d">📅 Resumen diario</h3><div class="resumen-diario">';
+  for (let d = 1; d <= dias; d++) {
+    const ds = diaSemana(y, m, d);
+    const we = ds >= 5;
+    const esHoy = (hoy.getFullYear() === y && hoy.getMonth() + 1 === m && hoy.getDate() === d);
+    const total = totalPorDia[d];
+    resumenHtml += `<div class="dia-card${we ? ' we' : ''}${esHoy ? ' hoy' : ''}">
+      <div class="dia-num">${d}</div>
+      <div class="dia-info">${DIAS_SEMANA[ds]} · ${MESES_NOMBRE[m].substring(0,3).toUpperCase()}</div>
+      ${we ? '<div class="dia-info" style="color:#c0392b">Fin de semana</div>' : ''}
+      <div class="dia-total ${total > 0 ? 'ok' : 'zero'}">${total > 0 ? '✓ ' + total : '0'}</div>
+    </div>`;
+  }
+  resumenHtml += '</div>';
+  document.getElementById('calResumen').innerHTML = resumenHtml;
+}
+
+// ============ LISTADOS ============
+function initListados() {
+  const anios = [...new Set(registros.map(r => r.y))].sort();
+  ['lstAnio', 'lstPAnio'].forEach(id => {
+    document.getElementById(id).innerHTML = '<option value="">Todos</option>' + anios.map(a => `<option>${a}</option>`).join('');
+  });
+  document.getElementById('lstMaq').innerHTML = maquinas.map(m => `<option>${m}</option>`).join('');
+  const def = mesAnioDefecto();
+  document.getElementById('lstAnio').value = def.anio;
+  document.getElementById('lstMes').value = def.mes;
+}
+
+function renderListadoMaquina() {
+  const maq = document.getElementById('lstMaq').value;
+  const anio = document.getElementById('lstAnio').value;
+  const mes = document.getElementById('lstMes').value;
+  const filt = registros.filter(r => r.maquina === maq && (!anio || r.y == anio) && (!mes || r.m == mes));
+  if (!filt.length) {
+    document.getElementById('lstMaqResult').innerHTML = '<div class="empty">Sin datos para estos filtros</div>';
+    return;
+  }
+  const total = filt.reduce((a, r) => a + r.q, 0);
+  const porMes = {};
+  filt.forEach(r => {
+    const k = `${r.y}-${String(r.m).padStart(2, '0')}`;
+    porMes[k] = (porMes[k] || 0) + r.q;
+  });
+  let html = `<div class="summary-box"><b>${maq}</b> · ${filt.length} registros · <b>${total}</b> paquetes · ${fmtCajas(total)}</div>`;
+  html += '<table><thead><tr><th>Fecha</th><th class="num">Paquetes</th></tr></thead><tbody>';
+  filt.forEach(r => {
+    const ds = DIAS_SEMANA[diaSemana(r.y, r.m, r.d)];
+    html += `<tr><td>${r.d.toString().padStart(2, '0')}/${r.m.toString().padStart(2, '0')}/${r.y} (${ds})</td><td class="num">${r.q}</td></tr>`;
+  });
+  html += `<tr style="font-weight:bold;background:#f4f6f8"><td>TOTAL</td><td class="num">${total}</td></tr></tbody></table>`;
+  if (Object.keys(porMes).length > 1) {
+    html += '<h4 style="margin-top:12px">Desglose por mes</h4><table><thead><tr><th>Mes</th><th class="num">Paquetes</th></tr></thead><tbody>';
+    Object.entries(porMes).sort().forEach(([k, q]) => {
+      const [y, m] = k.split('-');
+      html += `<tr><td>${MESES_NOMBRE[+m]} ${y}</td><td class="num">${q}</td></tr>`;
+    });
+    html += '</tbody></table>';
+  }
+  document.getElementById('lstMaqResult').innerHTML = html;
+}
+
+function renderListadoPeriodo() {
+  const anio = document.getElementById('lstPAnio').value;
+  const mes = document.getElementById('lstPMes').value;
+  const filt = registros.filter(r => (!anio || r.y == anio) && (!mes || r.m == mes));
+  if (!filt.length) {
+    document.getElementById('lstPerResult').innerHTML = '<div class="empty">Sin datos para estos filtros</div>';
+    return;
+  }
+  const total = filt.reduce((a, r) => a + r.q, 0);
+  const porMaq = {};
+  filt.forEach(r => porMaq[r.maquina] = (porMaq[r.maquina] || 0) + r.q);
+  let periodo = '';
+  if (anio && mes) periodo = `${MESES_NOMBRE[+mes]} ${anio}`;
+  else if (anio) periodo = `Año ${anio}`;
+  else if (mes) periodo = `Mes ${MESES_NOMBRE[+mes]} (todos los años)`;
+  else periodo = 'Todo el histórico';
+  let html = `<div class="summary-box"><b>${periodo}</b> · ${filt.length} registros · <b>${total}</b> paquetes · ${fmtCajas(total)}</div>`;
+  html += '<table><thead><tr><th>Máquina</th><th class="num">Paquetes</th><th class="num">Hojas</th><th class="num">Cajas</th></tr></thead><tbody>';
+  const maqsOrden = CANONICAS.filter(m => porMaq[m]);
+  maqsOrden.forEach(m => {
+    const q = porMaq[m];
+    html += `<tr><td>${m}</td><td class="num">${q}</td><td class="num">${(q * HOJAS_POR_PAQ).toLocaleString('es-ES')}</td><td class="num">${fmtCajas(q)}</td></tr>`;
+  });
+  html += `<tr style="font-weight:bold;background:#f4f6f8"><td>TOTAL</td><td class="num">${total}</td><td class="num">${(total * HOJAS_POR_PAQ).toLocaleString('es-ES')}</td><td class="num">${fmtCajas(total)}</td></tr></tbody></table>`;
+  document.getElementById('lstPerResult').innerHTML = html;
+}
+
+// ============ GRÁFICAS ============
+let chartMeses = null;
+let chartMaquinas = null;
+const COLORES = ['#2c5f8d','#e67e22','#27ae60','#c0392b','#8e44ad','#16a085','#d35400','#2980b9','#7f8c8d','#f39c12'];
+
+function initGraficas() {
+  const anios = [...new Set(registros.map(r => r.y))].sort();
+  const hoy = new Date().getFullYear();
+  if (!anios.includes(hoy)) anios.push(hoy);
+  const htmlAnios = '<option value="">Todos</option>' + anios.map(a => `<option>${a}</option>`).join('');
+  document.getElementById('grafAnio').innerHTML = htmlAnios;
+  document.getElementById('grafAnio2').innerHTML = htmlAnios;
+  document.getElementById('grafMaq').innerHTML = '<option value="">Todas</option>' + maquinas.map(m => `<option>${m}</option>`).join('');
+  document.getElementById('grafAnio').value = hoy;
+  document.getElementById('grafAnio2').value = hoy;
+  renderGraficaMeses();
+  renderGraficaMaquinas();
+}
+
+function renderGraficaMeses() {
+  const anioFiltro = document.getElementById('grafAnio').value;
+  const maqFiltro = document.getElementById('grafMaq').value;
+  let datos;
+  if (maqFiltro) {
+    datos = [{ label: maqFiltro, data: calcularPorMes(anioFiltro, [maqFiltro]), backgroundColor: COLORES[0], borderColor: COLORES[0], borderWidth: 1 }];
+  } else {
+    datos = maquinas.map((maq, i) => ({ label: maq, data: calcularPorMes(anioFiltro, [maq]), backgroundColor: COLORES[i % COLORES.length], borderColor: COLORES[i % COLORES.length], borderWidth: 1 }));
+  }
+  const ctx = document.getElementById('chartMeses').getContext('2d');
+  if (chartMeses) chartMeses.destroy();
+  chartMeses = new Chart(ctx, {
+    type: 'bar',
+    data: { labels: MESES_NOMBRE.slice(1), datasets: datos },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: maqFiltro ? 'none' : 'top', labels: { font: { size: 11 } } },
+        title: { display: true, text: `Consumo por mes${anioFiltro ? ' · ' + anioFiltro : ''}${maqFiltro ? ' · ' + maqFiltro : ''}`, font: { size: 14 } }
+      },
+      scales: {
+        x: { stacked: !maqFiltro && maquinas.length > 3, ticks: { font: { size: 10 } } },
+        y: { stacked: !maqFiltro && maquinas.length > 3, beginAtZero: true, title: { display: true, text: 'Paquetes' } }
+      }
+    }
+  });
+}
+
+function renderGraficaMaquinas() {
+  const anioFiltro = document.getElementById('grafAnio2').value;
+  const porMaq = {};
+  maquinas.forEach(m => porMaq[m] = 0);
+  registros.forEach(r => {
+    if (anioFiltro && r.y != anioFiltro) return;
+    if (porMaq[r.maquina] !== undefined) porMaq[r.maquina] += r.q;
+  });
+  const maqsConDatos = CANONICAS.filter(m => porMaq[m] > 0);
+  const valores = maqsConDatos.map(m => porMaq[m]);
+  const colores = maqsConDatos.map((_, i) => COLORES[i % COLORES.length]);
+  const ctx = document.getElementById('chartMaquinas').getContext('2d');
+  if (chartMaquinas) chartMaquinas.destroy();
+  chartMaquinas = new Chart(ctx, {
+    type: 'bar',
+    data: { labels: maqsConDatos, datasets: [{ label: 'Paquetes', data: valores, backgroundColor: colores, borderColor: colores, borderWidth: 1 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+      plugins: { legend: { display: false }, title: { display: true, text: `Consumo por máquina${anioFiltro ? ' · ' + anioFiltro : ' · Todos los años'}`, font: { size: 14 } } },
+      scales: { x: { beginAtZero: true, title: { display: true, text: 'Paquetes' } }, y: { ticks: { font: { size: 11 } } } }
+    }
+  });
+}
+
+function calcularPorMes(anioFiltro, maqs) {
+  const resultado = new Array(12).fill(0);
+  registros.forEach(r => {
+    if (anioFiltro && r.y != anioFiltro) return;
+    if (!maqs.includes(r.maquina)) return;
+    resultado[r.m - 1] += r.q;
+  });
+  return resultado;
+}
+
+// ============ CALENDARIO PDF TRIMESTRAL ============
+function initPDF() {
+  let htmlAnios = '';
+  for (let a = 2022; a <= 2030; a++) htmlAnios += `<option>${a}</option>`;
+  document.getElementById('pdfAnio').innerHTML = htmlAnios;
+  const def = mesAnioDefecto();
+  document.getElementById('pdfAnio').value = def.anio;
+  cargarFestivosAnio();
+}
+
+function cargarFestivosAnio() {
+  const anio = document.getElementById('pdfAnio').value;
+  let html = '';
+  for (let mes = 1; mes <= 12; mes++) {
+    const clave = `${anio}-${String(mes).padStart(2,'0')}`;
+    const festivosMes = festivos[clave] || [];
+    html += `<h4 style="margin:12px 0 8px;color:#2c5f8d">${MESES_NOMBRE[mes]} ${anio}</h4>`;
+    html += '<div class="festivos-selector">';
+    const dias = diasEnMes(+anio, mes);
+    for (let d = 1; d <= dias; d++) {
+      const we = esFinde(+anio, mes, d);
+      const esFestivo = festivosMes.includes(d);
+      html += `<div class="festivo-dia${we?' weekend':''}${esFestivo?' festivo':''}" 
+        ${we?'':`onclick="toggleFestivo(${anio},${mes},${d})"`}
+        title="${we?'Fin de semana':(esFestivo?'Festivo - clic para quitar':'Laborable - clic para marcar como festivo')}">
+        ${d}<br><small style="font-size:9px">${DIAS_SEMANA[diaSemana(+anio,mes,d)]}</small>
+      </div>`;
+    }
+    html += '</div>';
+  }
+  document.getElementById('festivosContainer').innerHTML = html;
+}
+
+function toggleFestivo(anio, mes, dia) {
+  const clave = `${anio}-${String(mes).padStart(2,'0')}`;
+  if (!festivos[clave]) festivos[clave] = [];
+  const idx = festivos[clave].indexOf(dia);
+  if (idx >= 0) festivos[clave].splice(idx, 1);
+  else festivos[clave].push(dia);
+  festivos[clave].sort((a,b) => a-b);
+  guardarFestivosLocal();
+  cargarFestivosAnio();
+}
+
+function limpiarFestivosAnio() {
+  const anio = document.getElementById('pdfAnio').value;
+  if (!confirm(`¿Quitar todos los festivos de ${anio}?`)) return;
+  Object.keys(festivos).forEach(k => { if (k.startsWith(anio + '-')) delete festivos[k]; });
+  guardarFestivosLocal();
+  cargarFestivosAnio();
+}
+
+function getDiasDelMes(anio, mes) {
+  const clave = `${anio}-${String(mes).padStart(2,'0')}`;
+  const festivosMes = festivos[clave] || [];
+  const dias = diasEnMes(anio, mes);
+  const todos = [];
+  for (let d = 1; d <= dias; d++) {
+    const ds = diaSemana(anio, mes, d);
+    const we = ds >= 5;
+    const festivo = festivosMes.includes(d);
+    todos.push({ d, ds, we, festivo, bloqueado: we || festivo });
+  }
+  return { diasInfo: todos, festivosMes };
+}
+
+function generarHTMLMes(anio, mes, diasInfo) {
+  let html = `<div class="mes-bloque">`;
+  html += `<div class="pdf-titulo-mes">MES DE ${MESES_NOMBRE[mes].toUpperCase()} ${anio}</div>`;
+  html += '<table class="pdf-tabla"><thead><tr>';
+  html += '<th class="maquina-header">MÁQUINA</th>';
+  diasInfo.forEach(di => {
+    if (di.bloqueado) html += `<th class="dia-header festivo-col">${di.d}<br><small>${DIAS_SEMANA[di.ds]}</small></th>`;
+    else html += `<th class="dia-header">${di.d}<br><small>${DIAS_SEMANA[di.ds]}</small></th>`;
+  });
+  html += '<th class="dia-header" style="background:#1a3a5c;color:white">TOTAL</th>';
+  html += '</tr></thead><tbody>';
+  maquinas.forEach(maq => {
+    html += '<tr>';
+    html += `<td class="maquina-cell">${maq}</td>`;
+    diasInfo.forEach(di => {
+      if (di.bloqueado) html += `<td class="celda-x">X</td>`;
+      else html += `<td class="celda-vacia"></td>`;
+    });
+    html += `<td class="total-cell"></td>`;
+    html += '</tr>';
+  });
+  html += '</tbody></table></div>';
+  return html;
+}
+
+function generarVistaPreviaTrimestral() {
+  const anio = +document.getElementById('pdfAnio').value;
+  const trimestres = [[1,2,3],[4,5,6],[7,8,9],[10,11,12]];
+  let html = '';
+  trimestres.forEach(trim => {
+    html += `<div class="hoja-a4">`;
+    trim.forEach(mes => {
+      const { diasInfo } = getDiasDelMes(anio, mes);
+      html += generarHTMLMes(anio, mes, diasInfo);
+    });
+    html += `</div>`;
+  });
+  document.getElementById('pdfContenido').innerHTML = html;
+  let previewHtml = '<div style="background:#f8f9fa;padding:16px;border-radius:8px;margin-top:12px">';
+  previewHtml += '<h3 style="color:#2c5f8d;margin-top:0">Vista previa generada</h3>';
+  previewHtml += '<p style="font-size:13px;color:#666">Se han generado 4 hojas A4 horizontal con los 12 meses del año ' + anio + '.</p>';
+  previewHtml += '<div class="actions">';
+  previewHtml += `<button class="success" onclick="imprimirTrimestral(${anio})">🖨️ Imprimir / Guardar PDF</button>`;
+  previewHtml += '</div>';
+  previewHtml += '<div style="margin-top:12px;padding:12px;background:#fff3cd;border-radius:6px;font-size:13px">';
+  previewHtml += '<b>⚠️ Importante:</b> En el diálogo de impresión, desmarca <b>"Encabezados y pies de página"</b>. Pon márgenes <b>Mínimos</b> y orientación <b>Horizontal</b>.';
+  previewHtml += '</div></div>';
+  document.getElementById('pdfPreview').innerHTML = previewHtml;
+}
+
+function imprimirTrimestral(anio) {
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+  document.getElementById('panel-print').classList.add('active');
+  setTimeout(() => {
+    window.print();
+    setTimeout(() => {
+      document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+      document.querySelector('[data-tab="pdf"]').classList.add('active');
+      document.getElementById('panel-pdf').classList.add('active');
+    }, 500);
+  }, 100);
+}
+
+// ============ EDITAR ============
+function initEditar() { document.getElementById('buscar').oninput = renderEditar; }
+
+function renderEditar() {
+  const q = document.getElementById('buscar').value.toLowerCase();
+  const rows = registros.filter(r => !q || r.maquina.toLowerCase().includes(q) || `${r.d}/${r.m}/${r.y}`.includes(q)).slice(-200).reverse();
+  document.querySelector('#tablaEditar tbody').innerHTML = rows.map(r => {
+    const idx = registros.indexOf(r);
+    const we = diaSemana(r.y, r.m, r.d) >= 5;
+    return `<tr style="${we ? 'background:#ffe0e0' : ''}">
+      <td><input type="date" value="${r.y}-${String(r.m).padStart(2, '0')}-${String(r.d).padStart(2, '0')}" data-idx="${idx}" data-k="f"></td>
+      <td><select data-idx="${idx}" data-k="m">${maquinas.map(m => `<option${m === r.maquina ? ' selected' : ''}>${m}</option>`).join('')}</select></td>
+      <td class="num"><input type="number" min="0" value="${r.q}" data-idx="${idx}" data-k="q" style="width:70px"></td>
+      <td><button class="danger" data-idx="${idx}" data-k="x" style="padding:4px 8px;font-size:12px">🗑️</button></td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="4" class="empty">Sin registros</td></tr>';
+  document.querySelectorAll('#tablaEditar input, #tablaEditar select').forEach(el => el.onchange = editarCampo);
+  document.querySelectorAll('#tablaEditar button[data-k="x"]').forEach(b => b.onclick = borrarRegistro);
+}
+
+function editarCampo(e) {
+  const idx = +e.target.dataset.idx, k = e.target.dataset.k, r = registros[idx];
+  if (k === 'f') { const [y, m, d] = e.target.value.split('-').map(Number); r.y = y; r.m = m; r.d = d; }
+  if (k === 'm') r.maquina = e.target.value;
+  if (k === 'q') r.q = +e.target.value;
+  registros.sort((a, b) => a.y - b.y || a.m - b.m || a.d - b.d);
+  guardarDatosLocal();
+}
+
+function borrarRegistro(e) {
+  const idx = +e.target.dataset.idx;
+  if (!confirm('¿Borrar?')) return;
+  registros.splice(idx, 1);
+  guardarDatosLocal();
+  renderEditar();
+}
+
+// ============ GESTIÓN ============
+function initGestion() {
+  document.getElementById('cargaJson').onchange = e => {
+    const f = e.target.files[0]; if (!f) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      try {
+        const d = JSON.parse(ev.target.result);
+        const n = normalizarDatos(d);
+        maquinas = n.maquinas; registros = n.registros; entradas = n.entradas;
+        guardarDatosLocal();
+        iniciarApp();
+      } catch(err) { alert('❌ Error: ' + err.message); }
+    };
+    reader.readAsText(f);
+  };
+  document.getElementById('jsonInput').onchange = e => {
+    const f = e.target.files[0]; if (!f) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      try {
+        const d = JSON.parse(ev.target.result);
+        const n = normalizarDatos(d);
+        if (!confirm(`Importar ${n.registros.length} registros, ${n.entradas.length} entradas y ${n.maquinas.length} máquinas. ¿Reemplazar?`)) return;
+        maquinas = n.maquinas; registros = n.registros; entradas = n.entradas;
+        guardarDatosLocal(); renderTodo();
+        alert('✅ Importado y guardado en JSON');
+      } catch(err) { alert('❌ Error: ' + err.message); }
+    };
+    reader.readAsText(f);
+  };
+  document.getElementById('excelInput').onchange = e => { if (e.target.files[0]) procesarExcel(e.target.files[0]); };
+}
+
+function exportarJSON() {
+  const blob = new Blob([JSON.stringify({maquinas, registros, entradas}, null, 1)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `control_papel_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+}
+
+function confirmarReset() {
+  if (!confirm('¿Borrar todos los datos? Se reseteará también el JSON.')) return;
+  maquinas = CANONICAS.slice();
+  registros = [];
+  entradas = [];
+  guardarDatosLocal();
+  location.reload();
+}
+
+async function procesarExcel(file) {
+  const caja = document.getElementById('excelRevision');
+  caja.innerHTML = '⏳ Procesando...';
+  try {
+    const data = await file.arrayBuffer();
+    const wb = XLSX.read(data, {type:'array'});
+    const MESES = {ENERO:1,FEBRERO:2,MARZO:3,ABRIL:4,MAYO:5,JUNIO:6,JULIO:7,AGOSTO:8,SEPTIEMBRE:9,OCTUBRE:10,NOVIEMBRE:11,DICIEMBRE:12};
+    const regs = [];
+    for (const sn of wb.SheetNames) {
+      const rows = XLSX.utils.sheet_to_json(wb.Sheets[sn], {header:1, defval:'', raw:false});
+      let year = null;
+      for (let i=0; i<30; i++) { const m = rows[i]?.join(' ').match(/\b(20\d{2})\b/); if (m) { year = +m[1]; break; } }
+      if (!year) continue;
+      let curM = null, dayCols = null;
+      for (const row of rows) {
+        const rt = row.join('|').toUpperCase();
+        for (const [n, num] of Object.entries(MESES)) if (rt.includes('MES DE '+n)||rt.includes('MES '+n)) { curM = num; dayCols = null; break; }
+        if (!curM) continue;
+        if (!dayCols) {
+          const nums = [];
+          row.forEach((v, idx) => { const n = parseInt(v, 10); if (Number.isInteger(n) && n >= 1 && n <= 31) nums.push({idx, v: n}); });
+          if (nums.length >= 15) { dayCols = {}; nums.forEach(n => dayCols[n.idx] = n.v); }
+          continue;
+        }
+        const maq = maquinas.find(m => row[0]?.toString().toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').includes(m.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')));
+        if (!maq) continue;
+        for (const [col, day] of Object.entries(dayCols)) {
+          const v = parseInt(row[col], 10);
+          if (v > 0) regs.push({y:year, m:curM, d:day, maquina:maq, q:v});
+        }
+      }
+    }
+    regs.sort((a,b)=>a.y-b.y||a.m-b.m||a.d-b.d);
+    const total = regs.reduce((a,r)=>a+r.q,0);
+    caja.innerHTML = `<div class="summary-box"><b>${regs.length}</b> registros · <b>${total}</b> paquetes · ${fmtCajas(total)}</div>
+      <div class="actions"><button class="success" id="xlOk">✅ Añadir y guardar</button><button class="secondary" id="xlNo">Cancelar</button></div>`;
+    document.getElementById('xlOk').onclick = () => {
+      const clave = r=>`${r.y}-${r.m}-${r.d}|${r.maquina}`;
+      const idx = new Map(registros.map(r=>[clave(r),r]));
+      let n=0,s=0;
+      regs.forEach(r => { const k=clave(r),p=idx.get(k); if(p){p.q+=r.q;s++;}else{registros.push({...r});n++;} });
+      registros.sort((a,b)=>a.y-b.y||a.m-b.m||a.d-b.d);
+      guardarDatosLocal();
+      alert(`✅ ${n} nuevos · ${s} sumados · Guardado en JSON`);
+      caja.innerHTML = '';
+    };
+    document.getElementById('xlNo').onclick = () => caja.innerHTML = '';
+  } catch(e) { caja.innerHTML = '❌ ' + e.message; }
+}
+
+function renderTodo() { renderGridEntrada(); }
+</script>
+</body>
+</html>

@@ -1,0 +1,6499 @@
+{
+ "maquinas": [
+  "DESARRROLLO RURAL",
+  "COLOR 2ª PLANTA",
+  "COOPERACIÓN",
+  "HALL 1ª PLANTA",
+  "FAMILIA",
+  "COORDINACIÓN",
+  "AYUDA A DOMICILIO",
+  "COLOR PLANTA BAJA",
+  "CONSUMO",
+  "MANTENIMIENTO"
+ ],
+ "registros": [
+  {
+   "y": 2023,
+   "m": 4,
+   "d": 20,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 4,
+   "d": 20,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 4,
+   "d": 20,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 4,
+   "d": 20,
+   "maquina": "COORDINACIÓN",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 4,
+   "d": 27,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 4,
+   "d": 28,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 2,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 2,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 3,
+   "maquina": "COOPERACIÓN",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 4,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 5,
+   "maquina": "FAMILIA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 5,
+   "maquina": "COORDINACIÓN",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 8,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 3
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 10,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 12,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 15,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 15,
+   "maquina": "FAMILIA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 16,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 16,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 17,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 17,
+   "maquina": "COORDINACIÓN",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 18,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 22,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 22,
+   "maquina": "COOPERACIÓN",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 22,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 22,
+   "maquina": "FAMILIA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 23,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 23,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 24,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 25,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 26,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 26,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 26,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 26,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 5,
+   "d": 31,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 1,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 1,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 1,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 1,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 2,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 5,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 5,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 5,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 6,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 7,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 8,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 9,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 9,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 12,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 13,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 14,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 15,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 16,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 19,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 20,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 21,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 22,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 23,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 26,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 27,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 28,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 29,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 6,
+   "d": 30,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 6,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 10,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 12,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 14,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 19,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 20,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 21,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 24,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 25,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 26,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 27,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 7,
+   "d": 28,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 1,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 2,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 3,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 7,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 8,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 9,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 10,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 14,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 16,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 17,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 18,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 21,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 22,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 23,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 24,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 25,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 28,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 29,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 30,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 8,
+   "d": 31,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 1,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 6,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 8,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 11,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 12,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 13,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 14,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 15,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 20,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 21,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 22,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 25,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 26,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 27,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 28,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 9,
+   "d": 29,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 2,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 6,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 10,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 13,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 16,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 17,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 19,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 20,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 23,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 24,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 25,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 26,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 27,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 30,
+   "maquina": "FAMILIA",
+   "q": 2
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 31,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 10,
+   "d": 31,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 2,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 3,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 6,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 7,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 8,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 9,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 10,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 15,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 16,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 17,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 20,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 22,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 23,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 24,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 27,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 28,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 29,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 11,
+   "d": 30,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 1,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 4,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 5,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 7,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 11,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 12,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 14,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 15,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 18,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 19,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 20,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 21,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 22,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 26,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 27,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 28,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 29,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2023,
+   "m": 12,
+   "d": 29,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 2,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 3,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 5,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 8,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 9,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 10,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 2
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 12,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 15,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 16,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 17,
+   "maquina": "CONSUMO",
+   "q": 2
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 19,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 22,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 23,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 24,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 2
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 25,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 26,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 29,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 30,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 1,
+   "d": 31,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 1,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 2,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 5,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 6,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 7,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 8,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 12,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 13,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 14,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 15,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 16,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 19,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 20,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 21,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 22,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 23,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 26,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 27,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 28,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 2,
+   "d": 29,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 1,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 2
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 5,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 6,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 7,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 8,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 11,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 12,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 13,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 14,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 15,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 18,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 19,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 20,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 21,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 22,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 25,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 26,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 27,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 3,
+   "d": 28,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 1,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 2,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 3,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 5,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 8,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 10,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 11,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 12,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 15,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 16,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 17,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 18,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 19,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 22,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 24,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 25,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 26,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 29,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 4,
+   "d": 30,
+   "maquina": "CONSUMO",
+   "q": 2
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 2,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 6,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 7,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 8,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 9,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 10,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 14,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 15,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 16,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 17,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 20,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 21,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 22,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 23,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 24,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 27,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 28,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 29,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 30,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 31,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 5,
+   "d": 31,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 5,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 6,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 10,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 11,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 12,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 3
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 14,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 17,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 18,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 19,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 20,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 21,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 25,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 26,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 27,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 28,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 6,
+   "d": 28,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 1,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 2,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 5,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 8,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 10,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 11,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 12,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 15,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 16,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 17,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 18,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 19,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 22,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 23,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 24,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 25,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 26,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 29,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 7,
+   "d": 30,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 1,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 2,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 5,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 6,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 7,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 8,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 9,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 12,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 14,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 16,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 19,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 20,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 21,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 22,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 23,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 26,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 27,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 28,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 29,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 8,
+   "d": 30,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 2,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 4,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 5,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 6,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 10,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 12,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 13,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 3
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 16,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 17,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 18,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 19,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 20,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 23,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 24,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 25,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 26,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 27,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 9,
+   "d": 30,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 1,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 2,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 3,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 4,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 3
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 7,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 8,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 10,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 11,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 14,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 15,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 16,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 17,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 21,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 22,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 23,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 24,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 25,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 28,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 29,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 30,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 10,
+   "d": 31,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 5,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 6,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 7,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 8,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 11,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 12,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 13,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 14,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 15,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 19,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 20,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 21,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 22,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 25,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 26,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 27,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 28,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 29,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 11,
+   "d": 30,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 2,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 3,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 4,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 5,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 10,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 12,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 16,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 17,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 18,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 19,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 20,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 23,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 26,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 27,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 30,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2024,
+   "m": 12,
+   "d": 30,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 2,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 3,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 7,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 8,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 10,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 13,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 14,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 15,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 16,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 17,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 20,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 21,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 22,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 23,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 24,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 27,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 2
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 28,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 29,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 30,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 1,
+   "d": 31,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 5,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 6,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 7,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 10,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 12,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 13,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 14,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 17,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 18,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 19,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 20,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 21,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 24,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 2
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 25,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 26,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 27,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 2,
+   "d": 28,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 4,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 5,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 6,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 7,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 10,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 12,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 14,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 17,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 19,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 20,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 21,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 24,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 25,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 26,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 27,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 28,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 3,
+   "d": 31,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 1,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 2,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 7,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 8,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 9,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 10,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 14,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 15,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 16,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 21,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 3
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 22,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 23,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 24,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 25,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 28,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 29,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 4,
+   "d": 30,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 2,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 5,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 6,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 7,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 8,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 12,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 3
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 14,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 15,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 16,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 19,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 20,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 21,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 22,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 23,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 26,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 27,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 28,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 29,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 5,
+   "d": 30,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 2,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 3,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 5,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 6,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 10,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 12,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 13,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 16,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 17,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 19,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 20,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 23,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 24,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 25,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 26,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 27,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 6,
+   "d": 30,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 1,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 7,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 8,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 10,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 14,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 15,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 16,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 17,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 18,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 21,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 22,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 23,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 24,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 25,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 28,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 29,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 30,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 7,
+   "d": 31,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 1,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 5,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 2
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 6,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 7,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 8,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 12,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 14,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 19,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 20,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 21,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 22,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 25,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 26,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 27,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 28,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 8,
+   "d": 29,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 1,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 2,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 3,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 5,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 8,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 9,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 10,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 12,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 15,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 16,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 17,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 19,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 22,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 23,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 24,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 25,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 26,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 29,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 9,
+   "d": 30,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 1,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 2,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 6,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 7,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 8,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 10,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 14,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 15,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 16,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 17,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 20,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 21,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 22,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 23,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 24,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 27,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 28,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 29,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 30,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 10,
+   "d": 31,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 5,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 6,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 7,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 10,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 11,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 12,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 14,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 17,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 18,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 19,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 20,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 21,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 24,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 25,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 26,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 27,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 28,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 11,
+   "d": 28,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 1,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 2,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 3,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 5,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 9,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 10,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 12,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 15,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 16,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 17,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 19,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 22,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 23,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 26,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 29,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2025,
+   "m": 12,
+   "d": 30,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 5,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 5,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 9,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 9,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 14,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 14,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 14,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 14,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 14,
+   "maquina": "MANTENIMIENTO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 15,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 16,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 16,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 19,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 19,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 20,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 21,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 21,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 21,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 22,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 26,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 27,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 28,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 29,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 1,
+   "d": 30,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 2,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 3,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 3,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 4,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 5,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 5,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 5,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 5,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 6,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 9,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 9,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 10,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 19,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 19,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 19,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 24,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 2,
+   "d": 25,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 2,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 5,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 5,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 5,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 5,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 5,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 5,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 5,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 5,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 10,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 10,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 12,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 13,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 13,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 2
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 16,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 17,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 17,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 18,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 19,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 23,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 23,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 23,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 23,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 24,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 26,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 26,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 3,
+   "d": 31,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 6,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 6,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 6,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 6,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 7,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 7,
+   "maquina": "COORDINACIÓN",
+   "q": 2
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 7,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 8,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 9,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 9,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 10,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 14,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 15,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 15,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 15,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 3
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 16,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 16,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 16,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 17,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 28,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 28,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 2
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 28,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 28,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 28,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 28,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 28,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 28,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 29,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 4,
+   "d": 30,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 5,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 5,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 6,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 6,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 6,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 7,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 7,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 8,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 8,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 8,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 11,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 12,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 13,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 15,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 15,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 18,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 18,
+   "maquina": "MANTENIMIENTO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 18,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 19,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 19,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 19,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 19,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 21,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 21,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 22,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 22,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 25,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 2
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 27,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 27,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 28,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 5,
+   "d": 29,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 1,
+   "maquina": "COORDINACIÓN",
+   "q": 2
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 1,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 1,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 2,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 3,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 3,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 3,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 4,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 5,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 5,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 9,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 9,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 9,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 10,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 10,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 22,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 22,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 22,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 22,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 22,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 22,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 22,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 2
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 22,
+   "maquina": "MANTENIMIENTO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 29,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 29,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 30,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 30,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 6,
+   "d": 30,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 1,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 3,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 7,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 7,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 8,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 13,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 13,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 14,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 16,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 17,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 21,
+   "maquina": "MANTENIMIENTO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 23,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 24,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 27,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 29,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 29,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 29,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 30,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 31,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 7,
+   "d": 31,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 3,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 5,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 5,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 5,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 12,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 13,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 13,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 14,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 18,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 18,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 18,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 19,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 21,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 24,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 25,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 26,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 26,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 8,
+   "d": 27,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 2,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 4,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 4,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 7,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 7,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 8,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 10,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 11,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 14,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 14,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 16,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 18,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 18,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 21,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 22,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 22,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 23,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 24,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 24,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 25,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 25,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 28,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 28,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 9,
+   "d": 29,
+   "maquina": "CONSUMO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 1,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 1,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 2,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 2,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 2,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 7,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 8,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 8,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 13,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 13,
+   "maquina": "HALL 1ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 14,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 15,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 15,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 16,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 16,
+   "maquina": "COORDINACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 19,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 22,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 23,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 23,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 23,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 27,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 27,
+   "maquina": "FAMILIA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 29,
+   "maquina": "AYUDA A DOMICILIO",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 10,
+   "d": 30,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 2
+  }
+ ],
+ "entradas": []
+}
