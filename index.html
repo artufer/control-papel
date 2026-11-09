@@ -556,15 +556,10 @@ function copiarConfig() {
     alert('⚠️ No hay token configurado');
     return;
   }
-  const config = { token: githubToken, user: GITHUB_USER, repo: GITHUB_REPO, file: GITHUB_FILE };
-  const texto = btoa(JSON.stringify(config));
-  navigator.clipboard.writeText(texto).then(() => {
-    alert('✅ Configuración copiada al portapapeles. Pégala en el otro dispositivo con "Pegar config".');
-  }).catch(() => {
-    prompt('Copia este código:', texto);
-  });
+  // Mostrar el token en pantalla para anotarlo
+  const mensaje = `🔑 TU TOKEN DE GITHUB:\n\n${githubToken}\n\n📋 Anótalo o cópialo para usarlo en otros dispositivos.\n\nEn el otro dispositivo ve a ⚙️ Gestión y pégalo en el campo "Token de GitHub".`;
+  alert(mensaje);
 }
-
 function pegarConfig() {
   const texto = prompt('Pega el código de configuración:');
   if (!texto) return;
