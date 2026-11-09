@@ -41,7 +41,6 @@
   .summary-box { background: #e8f0f7; border-left: 4px solid #2c5f8d; padding: 12px; margin: 12px 0; border-radius: 4px; font-size: 14px; }
   .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; background: #2c5f8d; color: white; margin-right: 4px; }
   .badge.ok { background: #27ae60; }
-  .badge.sync { background: #16a085; }
   .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
   .empty { text-align: center; color: #999; padding: 20px; }
   .carga-inicial { background: #fff3cd; border: 2px dashed #e67e22; padding: 24px; border-radius: 8px; text-align: center; }
@@ -138,13 +137,15 @@
   .pdf-tabla td.total-cell { font-weight: bold; background: #f0f0f0; }
   .token-box { background: #fff3cd; border: 1px solid #e67e22; padding: 12px; border-radius: 6px; margin: 12px 0; font-size: 13px; }
   .token-box code { background: #f4f6f8; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
-  .token-input { display: flex; gap: 8px; align-items: end; margin-top: 8px; }
-  .token-input input { flex: 1; min-width: 300px; font-family: monospace; font-size: 12px; }
+  .token-input { display: flex; gap: 8px; align-items: end; margin-top: 8px; flex-wrap: wrap; }
+  .token-input input { flex: 1; min-width: 200px; font-family: monospace; font-size: 12px; }
   .sync-status { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-left: 8px; }
   .sync-status.ok { background: #d4edda; color: #155724; }
   .sync-status.pending { background: #fff3cd; color: #856404; }
   .sync-status.error { background: #f8d7da; color: #721c24; }
   .sync-status.offline { background: #e2e3e5; color: #383d41; }
+  .config-section { background: #e8f4fd; border: 1px solid #2c5f8d; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .config-section h3 { color: #2c5f8d; margin-top: 0; }
   @media print {
     @page { size: A4 landscape; margin: 5mm; }
     body { background: white; padding: 0; margin: 0; }
@@ -192,7 +193,7 @@
 <!-- GASTO CUADRÍCULA -->
 <div class="panel" id="panel-entrada">
   <h2>📝 Gasto por Meses (cuadrícula completa)</h2>
-  <p style="color:#666;font-size:13px;margin-bottom:12px">Selecciona mes y año. Haz clic en cualquier celda para anotar el consumo. Los datos se guardan <b>automáticamente</b> en el navegador y se sincronizan con GitHub. Los sábados y domingos están bloqueados (🚫).</p>
+  <p style="color:#666;font-size:13px;margin-bottom:12px">Selecciona mes y año. Haz clic en cualquier celda para anotar el consumo. Los datos se guardan <b>automáticamente</b> y se sincronizan con GitHub. Los sábados y domingos están bloqueados (🚫).</p>
   <div class="form-row">
     <div class="form-group"><label>Mes</label><select id="selMes">
       <option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option>
@@ -340,17 +341,19 @@
 <div class="panel" id="panel-gestion">
   <h2>⚙️ Gestión de Datos</h2>
 
-  <div class="token-box">
-    <h3 style="margin-top:0;color:#e67e22">🔑 Sincronización automática con GitHub</h3>
-    <p>Para que los cambios se guarden automáticamente en el repositorio, introduce tu <b>token personal de GitHub</b>. Se guarda solo en tu navegador.</p>
-    <p style="margin-top:8px"><b>¿Cómo obtenerlo?</b> Ve a <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a> → Generate new token (classic) → marca solo <code>repo</code> → copia el token.</p>
+  <div class="config-section">
+    <h3>🔑 Sincronización con GitHub</h3>
+    <p>Para que los cambios se guarden automáticamente en GitHub y estén disponibles en todos tus dispositivos, introduce tu <b>token personal</b>.</p>
+    <p style="margin-top:8px;font-size:12px"><b>¿Cómo obtenerlo?</b> Ve a <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a> → Generate new token (classic) → marca solo <code>repo</code> → copia el token.</p>
     <div class="token-input">
       <div class="form-group" style="flex:1;align-items:flex-start">
         <label>Token de GitHub</label>
         <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
       </div>
-      <button onclick="guardarToken()">💾 Guardar token</button>
-      <button class="secondary" onclick="probarConexion()">🔌 Probar conexión</button>
+      <button onclick="guardarToken()">💾 Guardar</button>
+      <button class="secondary" onclick="probarConexion()">🔌 Probar</button>
+      <button class="warning" onclick="copiarConfig()">📋 Copiar config</button>
+      <button onclick="pegarConfig()">📥 Pegar config</button>
     </div>
     <p id="tokenEstado" style="margin-top:8px;font-size:12px"></p>
   </div>
@@ -367,7 +370,7 @@
     <button class="danger" onclick="confirmarReset()">🗑️ Resetear</button>
   </div>
   <div style="margin-top:20px;padding:12px;background:#e8f0f7;border-radius:6px;font-size:13px">
-    <b>ℹ️ Guardado automático:</b> los datos se guardan en el navegador (localStorage) y se sincronizan con GitHub automáticamente si has configurado el token.
+    <b>ℹ️ Guardado automático:</b> los datos se guardan en el navegador y se sincronizan con GitHub automáticamente si has configurado el token.
   </div>
 </div>
 
@@ -378,7 +381,7 @@ const MESES_NOMBRE = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio
 const DIAS_SEMANA = ['L','M','X','J','V','S','D'];
 const CANONICAS = ['DESARRROLLO RURAL','COLOR 2ª PLANTA','COOPERACIÓN','HALL 1ª PLANTA','FAMILIA','COORDINACIÓN','AYUDA A DOMICILIO','COLOR PLANTA BAJA','CONSUMO','MANTENIMIENTO'];
 
-// Configuración de GitHub (cámbiala por tu usuario/repositorio)
+// Configuración de GitHub
 const GITHUB_USER = 'artufer';
 const GITHUB_REPO = 'control-papel';
 const GITHUB_BRANCH = 'main';
@@ -391,7 +394,7 @@ let festivos = {};
 let saveTimeout = null;
 let syncTimeout = null;
 let githubToken = localStorage.getItem('githubToken') || '';
-let fileSha = null; // SHA actual del archivo en GitHub
+let fileSha = null;
 
 // ============ BOTÓN SUBIR ARRIBA ============
 (function() {
@@ -404,16 +407,10 @@ let fileSha = null; // SHA actual del archivo en GitHub
 })();
 
 // ============ INDICADORES ============
-function mostrarIndicador(tipo, mensaje) {
+function mostrarIndicador(tipo) {
   const ind = document.getElementById('autoSaveIndicator');
-  const mensajes = {
-    saved: '💾 Guardado local',
-    syncing: '☁️ Sincronizando...',
-    synced: '✅ Sincronizado con GitHub',
-    error: '❌ Error al sincronizar',
-    offline: '⚠️ Sin token configurado'
-  };
-  ind.textContent = mensajes[tipo] || mensaje;
+  const mensajes = { saved: '💾 Guardado local', syncing: '☁️ Sincronizando...', synced: '✅ Sincronizado', error: '❌ Error sync', offline: '⚠️ Sin token' };
+  ind.textContent = mensajes[tipo] || tipo;
   ind.className = 'auto-save-indicator show ' + tipo;
   setTimeout(() => ind.className = 'auto-save-indicator ' + tipo, 2500);
 }
@@ -455,6 +452,11 @@ function normalizarDatos(d) {
     const n = limpia(x);
     return {fecha:String(n.fecha||'').trim(), cajas:+n.cajas||0, notas:String(n.notas||'').trim()};
   }).filter(x => x.fecha && x.cajas > 0);
+  // Si hay config con token, usarlo
+  if (r.config && r.config.token && !githubToken) {
+    githubToken = r.config.token;
+    localStorage.setItem('githubToken', githubToken);
+  }
   return {maquinas: maqsOrdenadas, registros: regs, entradas: ents};
 }
 
@@ -475,33 +477,20 @@ async function sincronizarConGitHub() {
   try {
     const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
     
-    // 1. Obtener el SHA actual del archivo
     if (!fileSha) {
-      const getRes = await fetch(url, {
-        headers: { 'Authorization': `token ${githubToken}` }
-      });
-      if (!getRes.ok) throw new Error('No se pudo leer el archivo: ' + getRes.status);
+      const getRes = await fetch(url, { headers: { 'Authorization': `token ${githubToken}` } });
+      if (!getRes.ok) throw new Error('No se pudo leer: ' + getRes.status);
       const getData = await getRes.json();
       fileSha = getData.sha;
     }
     
-    // 2. Preparar el contenido
     const contenido = JSON.stringify({maquinas, registros, entradas}, null, 1);
     const contenidoBase64 = btoa(unescape(encodeURIComponent(contenido)));
     
-    // 3. Actualizar el archivo
     const putRes = await fetch(url, {
       method: 'PUT',
-      headers: {
-        'Authorization': `token ${githubToken}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: `Actualización automática - ${new Date().toISOString()}`,
-        content: contenidoBase64,
-        sha: fileSha,
-        branch: GITHUB_BRANCH
-      })
+      headers: { 'Authorization': `token ${githubToken}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: `Actualización - ${new Date().toISOString()}`, content: contenidoBase64, sha: fileSha, branch: GITHUB_BRANCH })
     });
     
     if (!putRes.ok) {
@@ -509,7 +498,6 @@ async function sincronizarConGitHub() {
       throw new Error(errData.message || putRes.status);
     }
     
-    // 4. Actualizar el SHA para la próxima vez
     const putData = await putRes.json();
     fileSha = putData.content.sha;
     
@@ -519,27 +507,26 @@ async function sincronizarConGitHub() {
     console.error('Error sincronizando:', err);
     mostrarIndicador('error');
     actualizarEstadoSync('error', '❌ Error sync');
-    // Si falla el SHA, lo reseteamos para reintentar
     fileSha = null;
   }
 }
 
 async function forzarSincronizacion() {
-  fileSha = null; // Forzar relectura del SHA
+  fileSha = null;
   await sincronizarConGitHub();
 }
 
-// ============ TOKEN ============
+// ============ TOKEN Y CONFIG ============
 function guardarToken() {
   const token = document.getElementById('githubToken').value.trim();
   if (!token) {
-    document.getElementById('tokenEstado').innerHTML = '<span style="color:#c0392b">⚠️ Introduce un token válido</span>';
+    document.getElementById('tokenEstado').innerHTML = '<span style="color:#c0392b">⚠️ Introduce un token</span>';
     return;
   }
   githubToken = token;
   localStorage.setItem('githubToken', token);
-  fileSha = null; // Resetear SHA para forzar relectura
-  document.getElementById('tokenEstado').innerHTML = '<span style="color:#27ae60">✅ Token guardado. La próxima modificación se sincronizará automáticamente.</span>';
+  fileSha = null;
+  document.getElementById('tokenEstado').innerHTML = '<span style="color:#27ae60">✅ Token guardado. Se sincronizará automáticamente.</span>';
   actualizarEstadoSync('ok', '✅ Token configurado');
   sincronizarConGitHub();
 }
@@ -549,32 +536,60 @@ async function probarConexion() {
     document.getElementById('tokenEstado').innerHTML = '<span style="color:#c0392b">⚠️ Primero guarda un token</span>';
     return;
   }
-  document.getElementById('tokenEstado').innerHTML = '<span style="color:#f39c12">🔌 Probando conexión...</span>';
+  document.getElementById('tokenEstado').innerHTML = '<span style="color:#f39c12">🔌 Probando...</span>';
   try {
     const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
-    const res = await fetch(url, {
-      headers: { 'Authorization': `token ${githubToken}` }
-    });
+    const res = await fetch(url, { headers: { 'Authorization': `token ${githubToken}` } });
     if (!res.ok) throw new Error('Error ' + res.status);
     const data = await res.json();
     fileSha = data.sha;
-    document.getElementById('tokenEstado').innerHTML = '<span style="color:#27ae60">✅ Conexión correcta. Archivo encontrado (SHA: ' + data.sha.substring(0,8) + '...)</span>';
+    document.getElementById('tokenEstado').innerHTML = '<span style="color:#27ae60">✅ Conexión correcta. SHA: ' + data.sha.substring(0,8) + '...</span>';
     actualizarEstadoSync('ok', '✅ Conectado');
   } catch(err) {
-    document.getElementById('tokenEstado').innerHTML = '<span style="color:#c0392b">❌ Error: ' + err.message + '. Verifica el token y los permisos.</span>';
+    document.getElementById('tokenEstado').innerHTML = '<span style="color:#c0392b">❌ Error: ' + err.message + '</span>';
     actualizarEstadoSync('error', '❌ Error');
+  }
+}
+
+function copiarConfig() {
+  if (!githubToken) {
+    alert('⚠️ No hay token configurado');
+    return;
+  }
+  const config = { token: githubToken, user: GITHUB_USER, repo: GITHUB_REPO, file: GITHUB_FILE };
+  const texto = btoa(JSON.stringify(config));
+  navigator.clipboard.writeText(texto).then(() => {
+    alert('✅ Configuración copiada al portapapeles. Pégala en el otro dispositivo con "Pegar config".');
+  }).catch(() => {
+    prompt('Copia este código:', texto);
+  });
+}
+
+function pegarConfig() {
+  const texto = prompt('Pega el código de configuración:');
+  if (!texto) return;
+  try {
+    const config = JSON.parse(atob(texto));
+    if (config.token) {
+      githubToken = config.token;
+      localStorage.setItem('githubToken', githubToken);
+      document.getElementById('githubToken').value = githubToken;
+      fileSha = null;
+      document.getElementById('tokenEstado').innerHTML = '<span style="color:#27ae60">✅ Token importado. Conectando...</span>';
+      actualizarEstadoSync('ok', '✅ Token importado');
+      sincronizarConGitHub();
+    }
+  } catch(e) {
+    alert('❌ Código inválido');
   }
 }
 
 // ============ CARGA INICIAL ============
 async function cargarDatos() {
   try {
-    // Intentar cargar desde GitHub primero (si hay token)
     if (githubToken) {
       const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
-      const res = await fetch(url, {
-        headers: { 'Authorization': `token ${githubToken}` }
-      });
+      const res = await fetch(url, { headers: { 'Authorization': `token ${githubToken}` } });
       if (res.ok) {
         const data = await res.json();
         fileSha = data.sha;
@@ -593,7 +608,6 @@ async function cargarDatos() {
       }
     }
     
-    // Si no hay token o falla, intentar fetch normal
     let res = await fetch('./datos_historicos.json');
     if (!res.ok) res = await fetch('./datos.json');
     if (!res.ok) throw new Error('No encontrado');
@@ -684,7 +698,7 @@ function fechaHoyStr() {
   return `${h.getFullYear()}-${String(h.getMonth()+1).padStart(2,'0')}-${String(h.getDate()).padStart(2,'0')}`;
 }
 
-// ============ GASTO (CUADRÍCULA) ============
+// ============ GASTO CUADRÍCULA ============
 function initEntrada() {
   const selA = document.getElementById('selAnio');
   let htmlAnios = '';
@@ -721,7 +735,7 @@ function renderGridEntrada() {
       totalMaq += v;
       totalPorDia[d] += v;
       if (we) {
-        html += `<td class="we-cell" data-col="${d}"><input type="text" value="X" disabled title="Fin de semana"></td>`;
+        html += `<td class="we-cell" data-col="${d}"><input type="text" value="X" disabled></td>`;
       } else {
         html += `<td data-col="${d}"><input type="number" min="0" max="99" value="${v||''}" data-maq="${maq}" data-d="${d}" class="${v?'tiene':''}" onfocus="resaltarFilaColumna(this)" onblur="quitarResaltado()" oninput="actualizarCeldaGrid(this)"></td>`;
       }
@@ -825,7 +839,7 @@ function actualizarResumenGrid(y, m) {
 }
 
 function limpiarMesCompleto() {
-  if (!confirm('¿Borrar TODOS los datos de este mes para TODAS las máquinas?')) return;
+  if (!confirm('¿Borrar TODOS los datos de este mes?')) return;
   const y = +document.getElementById('selAnio').value;
   const m = +document.getElementById('selMes').value;
   registros = registros.filter(r => !(r.y === y && r.m === m));
@@ -848,7 +862,7 @@ function guardarEntradaPapel() {
   const cajas = parseFloat(document.getElementById('entCajas').value);
   const notas = document.getElementById('entNotas').value.trim();
   if (!fecha) { alert('⚠️ Selecciona una fecha'); return; }
-  if (!cajas || cajas <= 0) { alert('⚠️ Introduce un número válido de cajas'); return; }
+  if (!cajas || cajas <= 0) { alert('⚠️ Número de cajas inválido'); return; }
   const nueva = { fecha, cajas, notas };
   entradas.unshift(nueva);
   entradas.sort((a,b) => b.fecha.localeCompare(a.fecha));
@@ -883,8 +897,8 @@ function renderEntradas() {
     const we = diaSemana(y,m,d) >= 5;
     const paq = e.cajas * PAQS_POR_CAJA;
     html += `<div class="entrada-item" style="${we?'background:#fff5f5':''}">
-      <div class="fecha">${formatearFecha(e.fecha)}<br><small style="color:#666;font-weight:normal">${ds}</small></div>
-      <div class="cajas">${e.cajas} caja${e.cajas!==1?'s':''}<br><small style="color:#666;font-weight:normal;font-size:12px">${paq} paq.</small></div>
+      <div class="fecha">${formatearFecha(e.fecha)}<br><small style="color:#666">${ds}</small></div>
+      <div class="cajas">${e.cajas} caja${e.cajas!==1?'s':''}<br><small style="color:#666;font-size:12px">${paq} paq.</small></div>
       <div class="notas">${e.notas || '—'}</div>
       <div class="acciones">
         <button class="secondary" onclick="editarEntrada(${idxReal})">✏️</button>
@@ -909,7 +923,7 @@ function editarEntrada(idx) {
 
 function borrarEntrada(idx) {
   const e = entradas[idx];
-  if (!confirm(`¿Borrar entrada del ${formatearFecha(e.fecha)} (${e.cajas} cajas)?`)) return;
+  if (!confirm(`¿Borrar entrada del ${formatearFecha(e.fecha)}?`)) return;
   entradas.splice(idx, 1);
   guardarDatosLocal();
   renderEntradas();
@@ -1005,7 +1019,7 @@ function renderListadoMaquina() {
   const mes = document.getElementById('lstMes').value;
   const filt = registros.filter(r => r.maquina === maq && (!anio || r.y == anio) && (!mes || r.m == mes));
   if (!filt.length) {
-    document.getElementById('lstMaqResult').innerHTML = '<div class="empty">Sin datos para estos filtros</div>';
+    document.getElementById('lstMaqResult').innerHTML = '<div class="empty">Sin datos</div>';
     return;
   }
   const total = filt.reduce((a, r) => a + r.q, 0);
@@ -1037,7 +1051,7 @@ function renderListadoPeriodo() {
   const mes = document.getElementById('lstPMes').value;
   const filt = registros.filter(r => (!anio || r.y == anio) && (!mes || r.m == mes));
   if (!filt.length) {
-    document.getElementById('lstPerResult').innerHTML = '<div class="empty">Sin datos para estos filtros</div>';
+    document.getElementById('lstPerResult').innerHTML = '<div class="empty">Sin datos</div>';
     return;
   }
   const total = filt.reduce((a, r) => a + r.q, 0);
@@ -1046,7 +1060,7 @@ function renderListadoPeriodo() {
   let periodo = '';
   if (anio && mes) periodo = `${MESES_NOMBRE[+mes]} ${anio}`;
   else if (anio) periodo = `Año ${anio}`;
-  else if (mes) periodo = `Mes ${MESES_NOMBRE[+mes]} (todos los años)`;
+  else if (mes) periodo = `Mes ${MESES_NOMBRE[+mes]}`;
   else periodo = 'Todo el histórico';
   let html = `<div class="summary-box"><b>${periodo}</b> · ${filt.length} registros · <b>${total}</b> paquetes · ${fmtCajas(total)}</div>`;
   html += '<table><thead><tr><th>Máquina</th><th class="num">Paquetes</th><th class="num">Hojas</th><th class="num">Cajas</th></tr></thead><tbody>';
@@ -1094,14 +1108,8 @@ function renderGraficaMeses() {
     data: { labels: MESES_NOMBRE.slice(1), datasets: datos },
     options: {
       responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { position: maqFiltro ? 'none' : 'top', labels: { font: { size: 11 } } },
-        title: { display: true, text: `Consumo por mes${anioFiltro ? ' · ' + anioFiltro : ''}${maqFiltro ? ' · ' + maqFiltro : ''}`, font: { size: 14 } }
-      },
-      scales: {
-        x: { stacked: !maqFiltro && maquinas.length > 3, ticks: { font: { size: 10 } } },
-        y: { stacked: !maqFiltro && maquinas.length > 3, beginAtZero: true, title: { display: true, text: 'Paquetes' } }
-      }
+      plugins: { legend: { position: maqFiltro ? 'none' : 'top', labels: { font: { size: 11 } } }, title: { display: true, text: `Consumo por mes${anioFiltro ? ' · ' + anioFiltro : ''}${maqFiltro ? ' · ' + maqFiltro : ''}`, font: { size: 14 } } },
+      scales: { x: { stacked: !maqFiltro && maquinas.length > 3, ticks: { font: { size: 10 } } }, y: { stacked: !maqFiltro && maquinas.length > 3, beginAtZero: true, title: { display: true, text: 'Paquetes' } } }
     }
   });
 }
@@ -1122,11 +1130,7 @@ function renderGraficaMaquinas() {
   chartMaquinas = new Chart(ctx, {
     type: 'bar',
     data: { labels: maqsConDatos, datasets: [{ label: 'Paquetes', data: valores, backgroundColor: colores, borderColor: colores, borderWidth: 1 }] },
-    options: {
-      responsive: true, maintainAspectRatio: false, indexAxis: 'y',
-      plugins: { legend: { display: false }, title: { display: true, text: `Consumo por máquina${anioFiltro ? ' · ' + anioFiltro : ' · Todos los años'}`, font: { size: 14 } } },
-      scales: { x: { beginAtZero: true, title: { display: true, text: 'Paquetes' } }, y: { ticks: { font: { size: 11 } } } }
-    }
+    options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, title: { display: true, text: `Consumo por máquina${anioFiltro ? ' · ' + anioFiltro : ' · Todos los años'}`, font: { size: 14 } } }, scales: { x: { beginAtZero: true, title: { display: true, text: 'Paquetes' } }, y: { ticks: { font: { size: 11 } } } } }
   });
 }
 
@@ -1140,7 +1144,7 @@ function calcularPorMes(anioFiltro, maqs) {
   return resultado;
 }
 
-// ============ CALENDARIO PDF TRIMESTRAL ============
+// ============ CALENDARIO PDF ============
 function initPDF() {
   let htmlAnios = '';
   for (let a = 2022; a <= 2030; a++) htmlAnios += `<option>${a}</option>`;
@@ -1162,11 +1166,7 @@ function cargarFestivosAnio() {
     for (let d = 1; d <= dias; d++) {
       const we = esFinde(+anio, mes, d);
       const esFestivo = festivosMes.includes(d);
-      html += `<div class="festivo-dia${we?' weekend':''}${esFestivo?' festivo':''}" 
-        ${we?'':`onclick="toggleFestivo(${anio},${mes},${d})"`}
-        title="${we?'Fin de semana':(esFestivo?'Festivo - clic para quitar':'Laborable - clic para marcar como festivo')}">
-        ${d}<br><small style="font-size:9px">${DIAS_SEMANA[diaSemana(+anio,mes,d)]}</small>
-      </div>`;
+      html += `<div class="festivo-dia${we?' weekend':''}${esFestivo?' festivo':''}" ${we?'':`onclick="toggleFestivo(${anio},${mes},${d})"`} title="${we?'Fin de semana':(esFestivo?'Festivo':'Laborable')}">${d}<br><small style="font-size:9px">${DIAS_SEMANA[diaSemana(+anio,mes,d)]}</small></div>`;
     }
     html += '</div>';
   }
@@ -1207,25 +1207,20 @@ function getDiasDelMes(anio, mes) {
 }
 
 function generarHTMLMes(anio, mes, diasInfo) {
-  let html = `<div class="mes-bloque">`;
-  html += `<div class="pdf-titulo-mes">MES DE ${MESES_NOMBRE[mes].toUpperCase()} ${anio}</div>`;
-  html += '<table class="pdf-tabla"><thead><tr>';
-  html += '<th class="maquina-header">MÁQUINA</th>';
+  let html = `<div class="mes-bloque"><div class="pdf-titulo-mes">MES DE ${MESES_NOMBRE[mes].toUpperCase()} ${anio}</div>`;
+  html += '<table class="pdf-tabla"><thead><tr><th class="maquina-header">MÁQUINA</th>';
   diasInfo.forEach(di => {
     if (di.bloqueado) html += `<th class="dia-header festivo-col">${di.d}<br><small>${DIAS_SEMANA[di.ds]}</small></th>`;
     else html += `<th class="dia-header">${di.d}<br><small>${DIAS_SEMANA[di.ds]}</small></th>`;
   });
-  html += '<th class="dia-header" style="background:#1a3a5c;color:white">TOTAL</th>';
-  html += '</tr></thead><tbody>';
+  html += '<th class="dia-header" style="background:#1a3a5c;color:white">TOTAL</th></tr></thead><tbody>';
   maquinas.forEach(maq => {
-    html += '<tr>';
-    html += `<td class="maquina-cell">${maq}</td>`;
+    html += '<tr><td class="maquina-cell">' + maq + '</td>';
     diasInfo.forEach(di => {
       if (di.bloqueado) html += `<td class="celda-x">X</td>`;
       else html += `<td class="celda-vacia"></td>`;
     });
-    html += `<td class="total-cell"></td>`;
-    html += '</tr>';
+    html += '<td class="total-cell"></td></tr>';
   });
   html += '</tbody></table></div>';
   return html;
@@ -1236,27 +1231,19 @@ function generarVistaPreviaTrimestral() {
   const trimestres = [[1,2,3],[4,5,6],[7,8,9],[10,11,12]];
   let html = '';
   trimestres.forEach(trim => {
-    html += `<div class="hoja-a4">`;
+    html += '<div class="hoja-a4">';
     trim.forEach(mes => {
       const { diasInfo } = getDiasDelMes(anio, mes);
       html += generarHTMLMes(anio, mes, diasInfo);
     });
-    html += `</div>`;
+    html += '</div>';
   });
   document.getElementById('pdfContenido').innerHTML = html;
-  let previewHtml = '<div style="background:#f8f9fa;padding:16px;border-radius:8px;margin-top:12px">';
-  previewHtml += '<h3 style="color:#2c5f8d;margin-top:0">Vista previa generada</h3>';
-  previewHtml += '<p style="font-size:13px;color:#666">4 hojas A4 horizontal con los 12 meses del año ' + anio + '.</p>';
-  previewHtml += '<div class="actions">';
-  previewHtml += `<button class="success" onclick="imprimirTrimestral(${anio})">🖨️ Imprimir / Guardar PDF</button>`;
-  previewHtml += '</div>';
-  previewHtml += '<div style="margin-top:12px;padding:12px;background:#fff3cd;border-radius:6px;font-size:13px">';
-  previewHtml += '<b>⚠️ Importante:</b> En el diálogo de impresión, desmarca <b>"Encabezados y pies de página"</b>. Pon márgenes <b>Mínimos</b> y orientación <b>Horizontal</b>.';
-  previewHtml += '</div></div>';
+  let previewHtml = '<div style="background:#f8f9fa;padding:16px;border-radius:8px;margin-top:12px"><h3 style="color:#2c5f8d;margin-top:0">Vista previa generada</h3><p style="font-size:13px;color:#666">4 hojas A4 horizontal con los 12 meses del año ' + anio + '.</p><div class="actions"><button class="success" onclick="imprimirTrimestral()">🖨️ Imprimir / Guardar PDF</button></div><div style="margin-top:12px;padding:12px;background:#fff3cd;border-radius:6px;font-size:13px"><b>⚠️ Importante:</b> Desmarca "Encabezados y pies de página". Márgenes Mínimos. Orientación Horizontal.</div></div>';
   document.getElementById('pdfPreview').innerHTML = previewHtml;
 }
 
-function imprimirTrimestral(anio) {
+function imprimirTrimestral() {
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
   document.getElementById('panel-print').classList.add('active');
@@ -1312,9 +1299,9 @@ function borrarRegistro(e) {
 function initTokenUI() {
   document.getElementById('githubToken').value = githubToken;
   if (githubToken) {
-    document.getElementById('tokenEstado').innerHTML = '<span style="color:#27ae60">✅ Token configurado. La sincronización es automática.</span>';
+    document.getElementById('tokenEstado').innerHTML = '<span style="color:#27ae60">✅ Token configurado. Sincronización automática activa.</span>';
   } else {
-    document.getElementById('tokenEstado').innerHTML = '<span style="color:#e67e22">⚠️ Sin token configurado. Los cambios solo se guardan en el navegador.</span>';
+    document.getElementById('tokenEstado').innerHTML = '<span style="color:#e67e22">⚠️ Sin token. Los cambios solo se guardan en este navegador.</span>';
   }
 }
 
@@ -1403,8 +1390,7 @@ async function procesarExcel(file) {
     }
     regs.sort((a,b)=>a.y-b.y||a.m-b.m||a.d-b.d);
     const total = regs.reduce((a,r)=>a+r.q,0);
-    caja.innerHTML = `<div class="summary-box"><b>${regs.length}</b> registros · <b>${total}</b> paquetes · ${fmtCajas(total)}</div>
-      <div class="actions"><button class="success" id="xlOk">✅ Añadir y guardar</button><button class="secondary" id="xlNo">Cancelar</button></div>`;
+    caja.innerHTML = `<div class="summary-box"><b>${regs.length}</b> registros · <b>${total}</b> paquetes · ${fmtCajas(total)}</div><div class="actions"><button class="success" id="xlOk">✅ Añadir</button><button class="secondary" id="xlNo">Cancelar</button></div>`;
     document.getElementById('xlOk').onclick = () => {
       const clave = r=>`${r.y}-${r.m}-${r.d}|${r.maquina}`;
       const idx = new Map(registros.map(r=>[clave(r),r]));
