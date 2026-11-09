@@ -41,30 +41,23 @@
   .summary-box { background: #e8f0f7; border-left: 4px solid #2c5f8d; padding: 12px; margin: 12px 0; border-radius: 4px; font-size: 14px; }
   .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; background: #2c5f8d; color: white; margin-right: 4px; }
   .badge.ok { background: #27ae60; }
+  .badge.sync { background: #16a085; }
   .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
   .empty { text-align: center; color: #999; padding: 20px; }
   .carga-inicial { background: #fff3cd; border: 2px dashed #e67e22; padding: 24px; border-radius: 8px; text-align: center; }
   .carga-inicial h2 { color: #e67e22; margin-bottom: 12px; }
-  .auto-save-indicator { position: fixed; top: 20px; right: 20px; background: #27ae60; color: white; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.2); opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; z-index: 1000; pointer-events: none; }
+  .auto-save-indicator { position: fixed; top: 20px; right: 20px; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.2); opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; z-index: 1000; pointer-events: none; }
   .auto-save-indicator.show { opacity: 1; transform: translateY(0); }
-  .auto-save-indicator.error { background: #c0392b; }
+  .auto-save-indicator.saved { background: #27ae60; color: white; }
+  .auto-save-indicator.syncing { background: #f39c12; color: white; }
+  .auto-save-indicator.error { background: #c0392b; color: white; }
+  .auto-save-indicator.offline { background: #7f8c8d; color: white; }
   .leyenda { display: flex; flex-wrap: wrap; gap: 16px; margin: 12px 0; font-size: 13px; }
   .ley-item { display: flex; align-items: center; gap: 6px; }
   .ley-color { width: 16px; height: 16px; border-radius: 3px; border: 1px solid #ccc; }
-
-  .btn-subir {
-    position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px;
-    border-radius: 50%; background: #2c5f8d; color: white; border: none;
-    cursor: pointer; font-size: 22px; font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25); display: flex;
-    align-items: center; justify-content: center;
-    opacity: 0; visibility: hidden; transform: translateY(20px);
-    transition: all 0.3s ease; z-index: 999;
-  }
+  .btn-subir { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #2c5f8d; color: white; border: none; cursor: pointer; font-size: 22px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 999; }
   .btn-subir.visible { opacity: 1; visibility: visible; transform: translateY(0); }
-  .btn-subir:hover { background: #1a3a5c; transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.3); }
-
-  /* Cuadrícula de entrada */
+  .btn-subir:hover { background: #1a3a5c; transform: translateY(-3px); }
   .grid-entrada { overflow-x: auto; margin: 12px 0; border: 1px solid #ddd; border-radius: 6px; }
   .grid-entrada table { border-collapse: collapse; font-size: 12px; width: auto; min-width: 100%; }
   .grid-entrada th, .grid-entrada td { border: 1px solid #ddd; padding: 3px 2px; text-align: center; min-width: 30px; transition: background 0.1s; }
@@ -81,14 +74,8 @@
   .grid-entrada td.total-cell { background: #e8f0f7; font-weight: bold; min-width: 40px; }
   .grid-entrada tr.total-row td { background: #2c5f8d; color: white; font-weight: bold; }
   .grid-entrada tr.total-row td.maq-cell { background: #1a3a5c; }
-
-  /* Resaltado de fila y columna */
   .grid-entrada tr.fila-activa td { background: #fff9c4 !important; }
-  .grid-entrada tr.fila-activa td.maq-cell {
-    background: #fff59d !important;
-    font-weight: bold;
-    border-left: 3px solid #f57f17;
-  }
+  .grid-entrada tr.fila-activa td.maq-cell { background: #fff59d !important; font-weight: bold; border-left: 3px solid #f57f17; }
   .grid-entrada tr.fila-activa td.total-cell { background: #fff176 !important; }
   .grid-entrada td.col-activa, .grid-entrada th.col-activa { background: #bbdefb !important; color: #0d47a1; }
   .grid-entrada th.col-activa { font-weight: bold; }
@@ -96,8 +83,6 @@
   .grid-entrada td.total-cell.col-activa { background: #90caf9 !important; }
   .grid-entrada tbody tr:not(.fila-activa):hover td { background: #f5f5f5; }
   .grid-entrada tbody tr:not(.fila-activa):hover td.maq-cell { background: #eeeeee; font-weight: bold; }
-
-  /* Calendario */
   .cal-table { border-collapse: collapse; font-size: 12px; width: 100%; }
   .cal-table th, .cal-table td { border: 1px solid #ddd; padding: 4px; text-align: center; min-width: 28px; }
   .cal-table th.maq-col { text-align: left; min-width: 140px; position: sticky; left: 0; background: #2c5f8d; color: white; z-index: 2; }
@@ -120,7 +105,6 @@
   .dia-card .dia-total { font-size: 14px; font-weight: bold; margin-top: 4px; }
   .dia-card .dia-total.ok { color: #27ae60; }
   .dia-card .dia-total.zero { color: #999; }
-
   .entrada-form { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 16px; border: 1px solid #dee2e6; }
   .entrada-form .form-group { align-items: flex-start; }
   .entrada-form .form-group label { text-align: left; }
@@ -132,13 +116,11 @@
   .entrada-item .acciones { display: flex; gap: 4px; }
   .entrada-item .acciones button { padding: 4px 8px; font-size: 12px; }
   .total-entradas { background: #e8f0f7; padding: 12px; border-radius: 6px; margin-top: 12px; font-size: 16px; font-weight: 600; text-align: center; }
-
   .festivos-selector { display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 4px; margin: 12px 0; }
   .festivo-dia { padding: 8px 4px; text-align: center; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-size: 12px; background: white; transition: all 0.15s; }
   .festivo-dia:hover { background: #e8f0f7; }
   .festivo-dia.festivo { background: #c0392b; color: white; border-color: #c0392b; }
   .festivo-dia.weekend { background: #f0f0f0; color: #999; cursor: not-allowed; }
-
   #pdfContenido { background: white; font-family: Arial, sans-serif; }
   .hoja-a4 { width: 277mm; min-height: 180mm; padding: 4mm; page-break-after: always; box-sizing: border-box; }
   .hoja-a4:last-child { page-break-after: auto; }
@@ -154,11 +136,19 @@
   .pdf-tabla td.celda-x { background: #ffe0e0; color: #c0392b; font-weight: bold; font-size: 10px; }
   .pdf-tabla td.celda-vacia { background: #fff; }
   .pdf-tabla td.total-cell { font-weight: bold; background: #f0f0f0; }
-
+  .token-box { background: #fff3cd; border: 1px solid #e67e22; padding: 12px; border-radius: 6px; margin: 12px 0; font-size: 13px; }
+  .token-box code { background: #f4f6f8; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
+  .token-input { display: flex; gap: 8px; align-items: end; margin-top: 8px; }
+  .token-input input { flex: 1; min-width: 300px; font-family: monospace; font-size: 12px; }
+  .sync-status { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-left: 8px; }
+  .sync-status.ok { background: #d4edda; color: #155724; }
+  .sync-status.pending { background: #fff3cd; color: #856404; }
+  .sync-status.error { background: #f8d7da; color: #721c24; }
+  .sync-status.offline { background: #e2e3e5; color: #383d41; }
   @media print {
     @page { size: A4 landscape; margin: 5mm; }
     body { background: white; padding: 0; margin: 0; }
-    .tabs, .actions, button, .no-print, header, .panel:not(.print-only), .btn-subir { display: none !important; }
+    .tabs, .actions, button, .no-print, header, .panel:not(.print-only), .btn-subir, .auto-save-indicator { display: none !important; }
     .panel.print-only { display: block !important; box-shadow: none; padding: 0; margin: 0; }
     .hoja-a4 { page-break-after: always; width: 100%; min-height: auto; padding: 0; }
     .hoja-a4:last-child { page-break-after: auto; }
@@ -170,7 +160,7 @@
 
 <header>
   <h1>📄 Control de Consumo de Papel</h1>
-  <p>Hoy es <span id="fechaHoy">...</span></p>
+  <p>Hoy es <span id="fechaHoy">...</span><span id="syncStatus" class="sync-status offline">⏳ Conectando...</span></p>
 </header>
 
 <div id="autoSaveIndicator" class="auto-save-indicator">💾 Guardado</div>
@@ -202,7 +192,7 @@
 <!-- GASTO CUADRÍCULA -->
 <div class="panel" id="panel-entrada">
   <h2>📝 Gasto por Meses (cuadrícula completa)</h2>
-  <p style="color:#666;font-size:13px;margin-bottom:12px">Selecciona mes y año. Haz clic en cualquier celda para anotar el consumo. Los datos se guardan <b>automáticamente</b>. Los sábados y domingos están bloqueados (🚫). Al hacer clic se resalta la fila de la máquina y la columna del día.</p>
+  <p style="color:#666;font-size:13px;margin-bottom:12px">Selecciona mes y año. Haz clic en cualquier celda para anotar el consumo. Los datos se guardan <b>automáticamente</b> en el navegador y se sincronizan con GitHub. Los sábados y domingos están bloqueados (🚫).</p>
   <div class="form-row">
     <div class="form-group"><label>Mes</label><select id="selMes">
       <option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option>
@@ -216,6 +206,7 @@
   <div class="summary-box" id="resumenGrid">Selecciona mes y año.</div>
   <div class="actions">
     <button class="secondary" onclick="limpiarMesCompleto()">🧹 Limpiar todo el mes</button>
+    <button onclick="forzarSincronizacion()">🔄 Sincronizar ahora con GitHub</button>
   </div>
 </div>
 
@@ -313,7 +304,7 @@
 <!-- CALENDARIO PDF TRIMESTRAL -->
 <div class="panel" id="panel-pdf">
   <h2>📄 Calendario PDF Trimestral</h2>
-  <p style="color:#666;font-size:13px;margin-bottom:12px">Genera <b>4 hojas A4 horizontales</b> con 3 meses cada una. Solo días laborables en blanco, festivos y fines de semana marcados con <b style="color:#c0392b">X</b>.</p>
+  <p style="color:#666;font-size:13px;margin-bottom:12px">Genera <b>4 hojas A4 horizontales</b> con 3 meses cada una.</p>
   <div class="entrada-form">
     <h3 style="margin-top:0;color:#2c5f8d">1️⃣ Selecciona el año</h3>
     <div class="form-row">
@@ -322,8 +313,7 @@
     </div>
   </div>
   <div class="entrada-form">
-    <h3 style="margin-top:0">2️⃣ Marca los días festivos (haz clic para alternar)</h3>
-    <p style="font-size:12px;color:#666;margin-bottom:8px">Los festivos se guardan por mes y año. Los sábados y domingos no se pueden marcar.</p>
+    <h3 style="margin-top:0">2️⃣ Marca los días festivos</h3>
     <div id="festivosContainer"></div>
     <div class="actions">
       <button class="secondary" onclick="limpiarFestivosAnio()">🧹 Quitar todos los festivos del año</button>
@@ -335,9 +325,7 @@
   <div id="pdfPreview"></div>
 </div>
 
-<div class="panel print-only" id="panel-print">
-  <div id="pdfContenido"></div>
-</div>
+<div class="panel print-only" id="panel-print"><div id="pdfContenido"></div></div>
 
 <!-- EDITAR -->
 <div class="panel" id="panel-editar">
@@ -351,11 +339,27 @@
 <!-- GESTIÓN -->
 <div class="panel" id="panel-gestion">
   <h2>⚙️ Gestión de Datos</h2>
+
+  <div class="token-box">
+    <h3 style="margin-top:0;color:#e67e22">🔑 Sincronización automática con GitHub</h3>
+    <p>Para que los cambios se guarden automáticamente en el repositorio, introduce tu <b>token personal de GitHub</b>. Se guarda solo en tu navegador.</p>
+    <p style="margin-top:8px"><b>¿Cómo obtenerlo?</b> Ve a <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a> → Generate new token (classic) → marca solo <code>repo</code> → copia el token.</p>
+    <div class="token-input">
+      <div class="form-group" style="flex:1;align-items:flex-start">
+        <label>Token de GitHub</label>
+        <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+      </div>
+      <button onclick="guardarToken()">💾 Guardar token</button>
+      <button class="secondary" onclick="probarConexion()">🔌 Probar conexión</button>
+    </div>
+    <p id="tokenEstado" style="margin-top:8px;font-size:12px"></p>
+  </div>
+
   <h3>📊 Importar desde Excel</h3>
-  <p style="font-size:13px;color:#666;margin-bottom:8px">Selecciona tu archivo CONTROL DE PAPEL.xlsx</p>
   <input type="file" id="excelInput" accept=".xlsx,.xls">
   <div id="excelRevision" style="margin-top:12px"></div>
-  <h3 style="margin-top:24px">💾 Backup</h3>
+
+  <h3 style="margin-top:24px">💾 Backup manual</h3>
   <div class="actions">
     <button onclick="exportarJSON()">📥 Exportar JSON</button>
     <button onclick="document.getElementById('jsonInput').click()">📤 Importar JSON</button>
@@ -363,7 +367,7 @@
     <button class="danger" onclick="confirmarReset()">🗑️ Resetear</button>
   </div>
   <div style="margin-top:20px;padding:12px;background:#e8f0f7;border-radius:6px;font-size:13px">
-    <b>ℹ️ Guardado automático:</b> los datos se guardan en el navegador (localStorage). Usa <b>📥 Exportar JSON</b> para hacer backup.
+    <b>ℹ️ Guardado automático:</b> los datos se guardan en el navegador (localStorage) y se sincronizan con GitHub automáticamente si has configurado el token.
   </div>
 </div>
 
@@ -374,11 +378,20 @@ const MESES_NOMBRE = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio
 const DIAS_SEMANA = ['L','M','X','J','V','S','D'];
 const CANONICAS = ['DESARRROLLO RURAL','COLOR 2ª PLANTA','COOPERACIÓN','HALL 1ª PLANTA','FAMILIA','COORDINACIÓN','AYUDA A DOMICILIO','COLOR PLANTA BAJA','CONSUMO','MANTENIMIENTO'];
 
+// Configuración de GitHub (cámbiala por tu usuario/repositorio)
+const GITHUB_USER = 'artufer';
+const GITHUB_REPO = 'control-papel';
+const GITHUB_BRANCH = 'main';
+const GITHUB_FILE = 'datos_historicos.json';
+
 let maquinas = CANONICAS.slice();
 let registros = [];
 let entradas = [];
 let festivos = {};
 let saveTimeout = null;
+let syncTimeout = null;
+let githubToken = localStorage.getItem('githubToken') || '';
+let fileSha = null; // SHA actual del archivo en GitHub
 
 // ============ BOTÓN SUBIR ARRIBA ============
 (function() {
@@ -387,22 +400,34 @@ let saveTimeout = null;
     if (window.scrollY > 300) btn.classList.add('visible');
     else btn.classList.remove('visible');
   });
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();
 
-function mostrarIndicador(error = false) {
+// ============ INDICADORES ============
+function mostrarIndicador(tipo, mensaje) {
   const ind = document.getElementById('autoSaveIndicator');
-  ind.textContent = error ? '❌ Error al guardar' : '💾 Guardado';
-  ind.className = 'auto-save-indicator show' + (error ? ' error' : '');
-  setTimeout(() => ind.className = 'auto-save-indicator', 2000);
+  const mensajes = {
+    saved: '💾 Guardado local',
+    syncing: '☁️ Sincronizando...',
+    synced: '✅ Sincronizado con GitHub',
+    error: '❌ Error al sincronizar',
+    offline: '⚠️ Sin token configurado'
+  };
+  ind.textContent = mensajes[tipo] || mensaje;
+  ind.className = 'auto-save-indicator show ' + tipo;
+  setTimeout(() => ind.className = 'auto-save-indicator ' + tipo, 2500);
 }
 
-// En GitHub Pages no se puede escribir en el servidor, solo localStorage
+function actualizarEstadoSync(estado, texto) {
+  const el = document.getElementById('syncStatus');
+  el.className = 'sync-status ' + estado;
+  el.textContent = texto;
+}
+
+// ============ PERSISTENCIA LOCAL ============
 function guardarDatosLocal() {
   localStorage.setItem('controlPapel', JSON.stringify({maquinas, registros, entradas}));
-  mostrarIndicador(false);
+  programarSincronizacion();
 }
 
 function guardarFestivosLocal() {
@@ -433,10 +458,142 @@ function normalizarDatos(d) {
   return {maquinas: maqsOrdenadas, registros: regs, entradas: ents};
 }
 
-// Carga el JSON con ruta relativa (funciona en GitHub Pages)
-async function cargarDesdeServidor() {
+// ============ SINCRONIZACIÓN CON GITHUB ============
+function programarSincronizacion() {
+  clearTimeout(syncTimeout);
+  syncTimeout = setTimeout(() => sincronizarConGitHub(), 1500);
+}
+
+async function sincronizarConGitHub() {
+  if (!githubToken) {
+    actualizarEstadoSync('offline', '⚠️ Sin token');
+    return;
+  }
+  mostrarIndicador('syncing');
+  actualizarEstadoSync('pending', '☁️ Sincronizando...');
+  
   try {
-    // Prueba primero datos_historicos.json, luego datos.json
+    const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+    
+    // 1. Obtener el SHA actual del archivo
+    if (!fileSha) {
+      const getRes = await fetch(url, {
+        headers: { 'Authorization': `token ${githubToken}` }
+      });
+      if (!getRes.ok) throw new Error('No se pudo leer el archivo: ' + getRes.status);
+      const getData = await getRes.json();
+      fileSha = getData.sha;
+    }
+    
+    // 2. Preparar el contenido
+    const contenido = JSON.stringify({maquinas, registros, entradas}, null, 1);
+    const contenidoBase64 = btoa(unescape(encodeURIComponent(contenido)));
+    
+    // 3. Actualizar el archivo
+    const putRes = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${githubToken}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: `Actualización automática - ${new Date().toISOString()}`,
+        content: contenidoBase64,
+        sha: fileSha,
+        branch: GITHUB_BRANCH
+      })
+    });
+    
+    if (!putRes.ok) {
+      const errData = await putRes.json();
+      throw new Error(errData.message || putRes.status);
+    }
+    
+    // 4. Actualizar el SHA para la próxima vez
+    const putData = await putRes.json();
+    fileSha = putData.content.sha;
+    
+    mostrarIndicador('synced');
+    actualizarEstadoSync('ok', '✅ Sincronizado');
+  } catch(err) {
+    console.error('Error sincronizando:', err);
+    mostrarIndicador('error');
+    actualizarEstadoSync('error', '❌ Error sync');
+    // Si falla el SHA, lo reseteamos para reintentar
+    fileSha = null;
+  }
+}
+
+async function forzarSincronizacion() {
+  fileSha = null; // Forzar relectura del SHA
+  await sincronizarConGitHub();
+}
+
+// ============ TOKEN ============
+function guardarToken() {
+  const token = document.getElementById('githubToken').value.trim();
+  if (!token) {
+    document.getElementById('tokenEstado').innerHTML = '<span style="color:#c0392b">⚠️ Introduce un token válido</span>';
+    return;
+  }
+  githubToken = token;
+  localStorage.setItem('githubToken', token);
+  fileSha = null; // Resetear SHA para forzar relectura
+  document.getElementById('tokenEstado').innerHTML = '<span style="color:#27ae60">✅ Token guardado. La próxima modificación se sincronizará automáticamente.</span>';
+  actualizarEstadoSync('ok', '✅ Token configurado');
+  sincronizarConGitHub();
+}
+
+async function probarConexion() {
+  if (!githubToken) {
+    document.getElementById('tokenEstado').innerHTML = '<span style="color:#c0392b">⚠️ Primero guarda un token</span>';
+    return;
+  }
+  document.getElementById('tokenEstado').innerHTML = '<span style="color:#f39c12">🔌 Probando conexión...</span>';
+  try {
+    const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+    const res = await fetch(url, {
+      headers: { 'Authorization': `token ${githubToken}` }
+    });
+    if (!res.ok) throw new Error('Error ' + res.status);
+    const data = await res.json();
+    fileSha = data.sha;
+    document.getElementById('tokenEstado').innerHTML = '<span style="color:#27ae60">✅ Conexión correcta. Archivo encontrado (SHA: ' + data.sha.substring(0,8) + '...)</span>';
+    actualizarEstadoSync('ok', '✅ Conectado');
+  } catch(err) {
+    document.getElementById('tokenEstado').innerHTML = '<span style="color:#c0392b">❌ Error: ' + err.message + '. Verifica el token y los permisos.</span>';
+    actualizarEstadoSync('error', '❌ Error');
+  }
+}
+
+// ============ CARGA INICIAL ============
+async function cargarDatos() {
+  try {
+    // Intentar cargar desde GitHub primero (si hay token)
+    if (githubToken) {
+      const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+      const res = await fetch(url, {
+        headers: { 'Authorization': `token ${githubToken}` }
+      });
+      if (res.ok) {
+        const data = await res.json();
+        fileSha = data.sha;
+        const contenido = decodeURIComponent(escape(atob(data.content)));
+        const json = JSON.parse(contenido);
+        const n = normalizarDatos(json);
+        maquinas = n.maquinas;
+        registros = n.registros.sort((a,b)=>a.y-b.y||a.m-b.m||a.d-b.d);
+        entradas = n.entradas.sort((a,b)=>b.fecha.localeCompare(a.fecha));
+        const festRaw = localStorage.getItem('festivos');
+        if (festRaw) festivos = JSON.parse(festRaw);
+        guardarDatosLocal();
+        iniciarApp();
+        actualizarEstadoSync('ok', '✅ Conectado');
+        return;
+      }
+    }
+    
+    // Si no hay token o falla, intentar fetch normal
     let res = await fetch('./datos_historicos.json');
     if (!res.ok) res = await fetch('./datos.json');
     if (!res.ok) throw new Error('No encontrado');
@@ -449,9 +606,12 @@ async function cargarDesdeServidor() {
     if (festRaw) festivos = JSON.parse(festRaw);
     guardarDatosLocal();
     iniciarApp();
+    if (githubToken) actualizarEstadoSync('ok', '✅ Conectado');
+    else actualizarEstadoSync('offline', '⚠️ Sin token');
   } catch(err) {
-    document.getElementById('cargaError').textContent = 'No se pudo cargar el JSON: ' + err.message + '. Usa el selector de archivo de abajo.';
+    document.getElementById('cargaError').textContent = 'No se pudo cargar: ' + err.message;
     document.getElementById('cargaManual').style.display = 'block';
+    actualizarEstadoSync('error', '❌ Error');
   }
 }
 
@@ -472,7 +632,7 @@ function iniciarApp() {
 (function() {
   document.getElementById('fechaHoy').textContent = new Date().toLocaleDateString('es-ES', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
   const raw = localStorage.getItem('controlPapel');
-  if (raw) {
+  if (raw && !githubToken) {
     try {
       const d = JSON.parse(raw);
       const n = normalizarDatos(d);
@@ -482,7 +642,7 @@ function iniciarApp() {
       if (hayDatos()) { iniciarApp(); return; }
     } catch(e) {}
   }
-  cargarDesdeServidor();
+  cargarDatos();
 })();
 
 document.querySelectorAll('.tab').forEach(t => {
@@ -499,6 +659,7 @@ document.querySelectorAll('.tab').forEach(t => {
     if (t.dataset.tab === 'pdf') initPDF();
     if (t.dataset.tab === 'listados') renderListadoMaquina();
     if (t.dataset.tab === 'editar') renderEditar();
+    if (t.dataset.tab === 'gestion') initTokenUI();
   };
 });
 
@@ -541,7 +702,6 @@ function renderGridEntrada() {
   const y = +document.getElementById('selAnio').value;
   const m = +document.getElementById('selMes').value;
   const dias = diasEnMes(y, m);
-
   let html = '<table><thead><tr><th class="maq-header">MÁQUINA</th>';
   for (let d = 1; d <= dias; d++) {
     const ds = diaSemana(y, m, d);
@@ -549,10 +709,8 @@ function renderGridEntrada() {
     html += `<th class="dia-h${we?' we':''}" data-col="${d}">${d}<span class="letra">${DIAS_SEMANA[ds]}</span></th>`;
   }
   html += '<th class="dia-h" style="background:#1a3a5c">TOTAL</th></tr></thead><tbody>';
-
   const totalPorDia = {};
   for (let d = 1; d <= dias; d++) totalPorDia[d] = 0;
-
   maquinas.forEach(maq => {
     let totalMaq = 0;
     html += `<tr><td class="maq-cell">${maq}</td>`;
@@ -570,7 +728,6 @@ function renderGridEntrada() {
     }
     html += `<td class="total-cell" id="tot-${maq.replace(/\s+/g,'_').replace(/ª/g,'a')}">${totalMaq||''}</td></tr>`;
   });
-
   let granTotal = 0;
   html += '<tr class="total-row"><td class="maq-cell">TOTAL DÍA</td>';
   for (let d = 1; d <= dias; d++) {
@@ -579,9 +736,7 @@ function renderGridEntrada() {
     if (we) html += `<td data-col="${d}"></td>`;
     else html += `<td data-col="${d}">${totalPorDia[d]||''}</td>`;
   }
-  html += `<td id="granTotal">${granTotal||''}</td></tr>`;
-  html += '</tbody></table>';
-
+  html += `<td id="granTotal">${granTotal||''}</td></tr></tbody></table>`;
   document.getElementById('gridEntrada').innerHTML = html;
   actualizarResumenGrid(y, m);
 }
@@ -610,9 +765,7 @@ function actualizarCeldaGrid(input) {
   const v = +input.value || 0;
   const y = +document.getElementById('selAnio').value;
   const m = +document.getElementById('selMes').value;
-
   input.classList.toggle('tiene', v > 0);
-
   if (v > 0) {
     const idx = registros.findIndex(r => r.y === y && r.m === m && r.d === d && r.maquina === maq);
     if (idx >= 0) registros[idx].q = v;
@@ -622,7 +775,6 @@ function actualizarCeldaGrid(input) {
     if (idx >= 0) registros.splice(idx, 1);
   }
   registros.sort((a,b) => a.y - b.y || a.m - b.m || a.d - b.d);
-
   recalcularTotales(y, m);
   actualizarResumenGrid(y, m);
   guardarDatosLocal();
@@ -632,7 +784,6 @@ function recalcularTotales(y, m) {
   const dias = diasEnMes(y, m);
   const totalPorDia = {};
   for (let d = 1; d <= dias; d++) totalPorDia[d] = 0;
-
   maquinas.forEach(maq => {
     let totalMaq = 0;
     for (let d = 1; d <= dias; d++) {
@@ -645,7 +796,6 @@ function recalcularTotales(y, m) {
     const totEl = document.getElementById('tot-' + maq.replace(/\s+/g,'_').replace(/ª/g,'a'));
     if (totEl) totEl.textContent = totalMaq || '';
   });
-
   const totalRow = document.querySelector('.grid-entrada .total-row');
   if (totalRow) {
     const cells = totalRow.querySelectorAll('td');
@@ -671,7 +821,7 @@ function actualizarResumenGrid(y, m) {
   });
   document.getElementById('resumenGrid').innerHTML =
     `<b>${MESES_NOMBRE[m]} ${y}</b> · <b>${total}</b> paquetes · ${(total*HOJAS_POR_PAQ).toLocaleString('es-ES')} hojas · ${fmtCajas(total)}<br>
-    <span style="color:#27ae60;font-size:12px">✓ Guardado automáticamente en el navegador</span>`;
+    <span style="color:#27ae60;font-size:12px">✓ Guardado automáticamente</span>`;
 }
 
 function limpiarMesCompleto() {
@@ -737,8 +887,8 @@ function renderEntradas() {
       <div class="cajas">${e.cajas} caja${e.cajas!==1?'s':''}<br><small style="color:#666;font-weight:normal;font-size:12px">${paq} paq.</small></div>
       <div class="notas">${e.notas || '—'}</div>
       <div class="acciones">
-        <button class="secondary" onclick="editarEntrada(${idxReal})" title="Editar">✏️</button>
-        <button class="danger" onclick="borrarEntrada(${idxReal})" title="Borrar">🗑️</button>
+        <button class="secondary" onclick="editarEntrada(${idxReal})">✏️</button>
+        <button class="danger" onclick="borrarEntrada(${idxReal})">🗑️</button>
       </div>
     </div>`;
   });
@@ -1096,7 +1246,7 @@ function generarVistaPreviaTrimestral() {
   document.getElementById('pdfContenido').innerHTML = html;
   let previewHtml = '<div style="background:#f8f9fa;padding:16px;border-radius:8px;margin-top:12px">';
   previewHtml += '<h3 style="color:#2c5f8d;margin-top:0">Vista previa generada</h3>';
-  previewHtml += '<p style="font-size:13px;color:#666">Se han generado 4 hojas A4 horizontal con los 12 meses del año ' + anio + '.</p>';
+  previewHtml += '<p style="font-size:13px;color:#666">4 hojas A4 horizontal con los 12 meses del año ' + anio + '.</p>';
   previewHtml += '<div class="actions">';
   previewHtml += `<button class="success" onclick="imprimirTrimestral(${anio})">🖨️ Imprimir / Guardar PDF</button>`;
   previewHtml += '</div>';
@@ -1159,7 +1309,17 @@ function borrarRegistro(e) {
 }
 
 // ============ GESTIÓN ============
+function initTokenUI() {
+  document.getElementById('githubToken').value = githubToken;
+  if (githubToken) {
+    document.getElementById('tokenEstado').innerHTML = '<span style="color:#27ae60">✅ Token configurado. La sincronización es automática.</span>';
+  } else {
+    document.getElementById('tokenEstado').innerHTML = '<span style="color:#e67e22">⚠️ Sin token configurado. Los cambios solo se guardan en el navegador.</span>';
+  }
+}
+
 function initGestion() {
+  initTokenUI();
   document.getElementById('cargaJson').onchange = e => {
     const f = e.target.files[0]; if (!f) return;
     const reader = new FileReader();
@@ -1181,9 +1341,9 @@ function initGestion() {
       try {
         const d = JSON.parse(ev.target.result);
         const n = normalizarDatos(d);
-        if (!confirm(`Importar ${n.registros.length} registros, ${n.entradas.length} entradas y ${n.maquinas.length} máquinas. ¿Reemplazar?`)) return;
+        if (!confirm(`Importar ${n.registros.length} registros. ¿Reemplazar?`)) return;
         maquinas = n.maquinas; registros = n.registros; entradas = n.entradas;
-        guardarDatosLocal(); renderTodo();
+        guardarDatosLocal();
         alert('✅ Importado');
       } catch(err) { alert('❌ Error: ' + err.message); }
     };
@@ -1258,8 +1418,6 @@ async function procesarExcel(file) {
     document.getElementById('xlNo').onclick = () => caja.innerHTML = '';
   } catch(e) { caja.innerHTML = '❌ ' + e.message; }
 }
-
-function renderTodo() { renderGridEntrada(); }
 </script>
 </body>
 </html>
