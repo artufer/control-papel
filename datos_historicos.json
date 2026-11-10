@@ -6514,6 +6514,20 @@
    "d": 4,
    "maquina": "FAMILIA",
    "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 11,
+   "d": 4,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 11,
+   "d": 4,
+   "maquina": "CONSUMO",
+   "q": 1
   }
  ],
  "entradas": []
