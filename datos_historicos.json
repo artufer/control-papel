@@ -6528,6 +6528,13 @@
    "d": 4,
    "maquina": "CONSUMO",
    "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 11,
+   "d": 9,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
   }
  ],
  "entradas": []
