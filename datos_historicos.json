@@ -6493,6 +6493,13 @@
    "d": 30,
    "maquina": "DESARRROLLO RURAL",
    "q": 2
+  },
+  {
+   "y": 2026,
+   "m": 11,
+   "d": 3,
+   "maquina": "COOPERACIÓN",
+   "q": 1
   }
  ],
  "entradas": []
