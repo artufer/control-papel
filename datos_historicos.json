@@ -6507,6 +6507,13 @@
    "d": 3,
    "maquina": "AYUDA A DOMICILIO",
    "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 11,
+   "d": 4,
+   "maquina": "FAMILIA",
+   "q": 1
   }
  ],
  "entradas": []
