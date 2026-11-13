@@ -6556,6 +6556,13 @@
    "d": 11,
    "maquina": "COLOR 2ª PLANTA",
    "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 11,
+   "d": 12,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
   }
  ],
  "entradas": []
