@@ -6560,6 +6560,13 @@
   {
    "y": 2026,
    "m": 11,
+   "d": 11,
+   "maquina": "COOPERACIÓN",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 11,
    "d": 12,
    "maquina": "DESARRROLLO RURAL",
    "q": 1
