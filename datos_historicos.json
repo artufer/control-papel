@@ -6549,6 +6549,13 @@
    "d": 9,
    "maquina": "AYUDA A DOMICILIO",
    "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 11,
+   "d": 11,
+   "maquina": "COLOR 2ª PLANTA",
+   "q": 1
   }
  ],
  "entradas": []
