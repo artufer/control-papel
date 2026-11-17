@@ -6588,6 +6588,13 @@
   {
    "y": 2026,
    "m": 11,
+   "d": 13,
+   "maquina": "DESARRROLLO RURAL",
+   "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 11,
    "d": 16,
    "maquina": "COLOR PLANTA BAJA",
    "q": 1
