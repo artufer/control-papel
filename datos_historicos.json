@@ -6584,6 +6584,13 @@
    "d": 12,
    "maquina": "AYUDA A DOMICILIO",
    "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 11,
+   "d": 16,
+   "maquina": "CONSUMO",
+   "q": 1
   }
  ],
  "entradas": []
