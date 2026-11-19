@@ -6598,6 +6598,13 @@
    "d": 16,
    "maquina": "COLOR PLANTA BAJA",
    "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 11,
+   "d": 17,
+   "maquina": "FAMILIA",
+   "q": 1
   }
  ],
  "entradas": []
