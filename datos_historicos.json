@@ -6626,6 +6626,13 @@
    "d": 20,
    "maquina": "MANTENIMIENTO",
    "q": 1
+  },
+  {
+   "y": 2026,
+   "m": 11,
+   "d": 20,
+   "maquina": "COLOR PLANTA BAJA",
+   "q": 1
   }
  ],
  "entradas": [
