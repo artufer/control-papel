@@ -193,7 +193,7 @@
 <!-- GASTO CUADRÍCULA -->
 <div class="panel" id="panel-entrada">
   <h2>📝 Gasto por Meses (cuadrícula completa)</h2>
-  <p style="color:#666;font-size:13px;margin-bottom:12px">Selecciona mes y año. Haz clic en cualquier celda para anotar el consumo. Los datos se guardan <b>automáticamente</b> y se sincronizan con GitHub. Los sábados y domingos están bloqueados (🚫).</p>
+  <p style="color:#666;font-size:13px;margin-bottom:12px">Selecciona mes y año. Haz clic en cualquier celda para anotar el consumo. Los datos se guardan <b>automáticamente</b> y se sincronizan con GitHub. Los sábados, domingos y festivos están bloqueados (🚫).</p>
   <div class="form-row">
     <div class="form-group"><label>Mes</label><select id="selMes">
       <option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option>
@@ -246,7 +246,7 @@
   <div class="leyenda">
     <span class="ley-item"><span class="ley-color" style="background:#d4e6f1"></span>Con consumo</span>
     <span class="ley-item"><span class="ley-color" style="background:#f4f6f8"></span>Sin consumo</span>
-    <span class="ley-item"><span class="ley-color" style="background:#ffe0e0"></span>Fin de semana</span>
+    <span class="ley-item"><span class="ley-color" style="background:#ffe0e0"></span>Fin de semana / Festivo</span>
   </div>
   <div id="calTabla" style="overflow-x:auto;margin-top:12px"></div>
   <div id="calResumen" style="margin-top:20px"></div>
@@ -305,7 +305,7 @@
 <!-- CALENDARIO PDF TRIMESTRAL -->
 <div class="panel" id="panel-pdf">
   <h2>📄 Calendario PDF Trimestral</h2>
-  <p style="color:#666;font-size:13px;margin-bottom:12px">Genera <b>4 hojas A4 horizontales</b> con 3 meses cada una.</p>
+  <p style="color:#666;font-size:13px;margin-bottom:12px">Genera <b>4 hojas A4 horizontales</b> con 3 meses cada una. <b>Marca aquí los festivos</b> para que se bloqueen en toda la aplicación.</p>
   <div class="entrada-form">
     <h3 style="margin-top:0;color:#2c5f8d">1️⃣ Selecciona el año</h3>
     <div class="form-row">
@@ -314,7 +314,7 @@
     </div>
   </div>
   <div class="entrada-form">
-    <h3 style="margin-top:0">2️⃣ Marca los días festivos</h3>
+    <h3 style="margin-top:0">2️⃣ Marca los días festivos (haz clic en ellos)</h3>
     <div id="festivosContainer"></div>
     <div class="actions">
       <button class="secondary" onclick="limpiarFestivosAnio()">🧹 Quitar todos los festivos del año</button>
@@ -343,7 +343,7 @@
 
   <div class="config-section">
     <h3>🔑 Sincronización con GitHub</h3>
-    <p>Para que los cambios se guarden automáticamente en GitHub y estén disponibles en todos tus dispositivos, introduce tu <b>token personal</b>.</p>
+    <p>Para que los cambios (incluidos los festivos) se guarden automáticamente en GitHub y estén disponibles en todos tus dispositivos, introduce tu <b>token personal</b>.</p>
     <p style="margin-top:8px;font-size:12px"><b>¿Cómo obtenerlo?</b> Ve a <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a> → Generate new token (classic) → marca solo <code>repo</code> → copia el token.</p>
     <div class="token-input">
       <div class="form-group" style="flex:1;align-items:flex-start">
@@ -452,7 +452,6 @@ function normalizarDatos(d) {
     const n = limpia(x);
     return {fecha:String(n.fecha||'').trim(), cajas:+n.cajas||0, notas:String(n.notas||'').trim()};
   }).filter(x => x.fecha && x.cajas > 0);
-  // Si hay config con token, usarlo
   if (r.config && r.config.token && !githubToken) {
     githubToken = r.config.token;
     localStorage.setItem('githubToken', githubToken);
@@ -484,7 +483,8 @@ async function sincronizarConGitHub() {
       fileSha = getData.sha;
     }
     
-    const contenido = JSON.stringify({maquinas, registros, entradas}, null, 1);
+    // ➕ INCLUIDO: festivos en la sincronización
+    const contenido = JSON.stringify({maquinas, registros, entradas, festivos}, null, 1);
     const contenidoBase64 = btoa(unescape(encodeURIComponent(contenido)));
     
     const putRes = await fetch(url, {
@@ -556,7 +556,6 @@ function copiarConfig() {
     alert('⚠️ No hay token configurado');
     return;
   }
-  // Mostrar el token en pantalla para anotarlo
   const mensaje = `🔑 TU TOKEN DE GITHUB:\n\n${githubToken}\n\n📋 Anótalo o cópialo para usarlo en otros dispositivos.\n\nEn el otro dispositivo ve a ⚙️ Gestión y pégalo en el campo "Token de GitHub".`;
   alert(mensaje);
 }
@@ -594,8 +593,15 @@ async function cargarDatos() {
         maquinas = n.maquinas;
         registros = n.registros.sort((a,b)=>a.y-b.y||a.m-b.m||a.d-b.d);
         entradas = n.entradas.sort((a,b)=>b.fecha.localeCompare(a.fecha));
-        const festRaw = localStorage.getItem('festivos');
-        if (festRaw) festivos = JSON.parse(festRaw);
+        
+        // ➕ INCLUIDO: Cargar festivos desde GitHub si existen
+        if (json.festivos) {
+          festivos = json.festivos;
+          guardarFestivosLocal();
+        } else {
+          const festRaw = localStorage.getItem('festivos');
+          if (festRaw) festivos = JSON.parse(festRaw);
+        }
         guardarDatosLocal();
         iniciarApp();
         actualizarEstadoSync('ok', '✅ Conectado');
@@ -611,8 +617,15 @@ async function cargarDatos() {
     maquinas = n.maquinas;
     registros = n.registros.sort((a,b)=>a.y-b.y||a.m-b.m||a.d-b.d);
     entradas = n.entradas.sort((a,b)=>b.fecha.localeCompare(a.fecha));
-    const festRaw = localStorage.getItem('festivos');
-    if (festRaw) festivos = JSON.parse(festRaw);
+    
+    // ➕ INCLUIDO: Cargar festivos desde archivo local si existen
+    if (data.festivos) {
+      festivos = data.festivos;
+      guardarFestivosLocal();
+    } else {
+      const festRaw = localStorage.getItem('festivos');
+      if (festRaw) festivos = JSON.parse(festRaw);
+    }
     guardarDatosLocal();
     iniciarApp();
     if (githubToken) actualizarEstadoSync('ok', '✅ Conectado');
@@ -681,6 +694,13 @@ function fmtCajas(total) {
 function diasEnMes(y,m) { return new Date(y,m,0).getDate(); }
 function diaSemana(y,m,d) { const w = new Date(y,m-1,d).getDay(); return w===0?6:w-1; }
 function esFinde(y,m,d) { return diaSemana(y,m,d) >= 5; }
+
+// ➕ NUEVA FUNCIÓN: Detectar si un día es festivo
+function esFestivo(y, m, d) {
+  const clave = `${y}-${String(m).padStart(2, '0')}`;
+  return (festivos[clave] || []).includes(d);
+}
+
 function mesAnioDefecto() {
   const hoy = new Date();
   let mes = hoy.getMonth();
@@ -715,7 +735,9 @@ function renderGridEntrada() {
   for (let d = 1; d <= dias; d++) {
     const ds = diaSemana(y, m, d);
     const we = ds >= 5;
-    html += `<th class="dia-h${we?' we':''}" data-col="${d}">${d}<span class="letra">${DIAS_SEMANA[ds]}</span></th>`;
+    const festivo = esFestivo(y, m, d);
+    const bloqueado = we || festivo;
+    html += `<th class="dia-h${bloqueado?' we':''}" data-col="${d}">${d}<span class="letra">${DIAS_SEMANA[ds]}${festivo ? ' 🎉' : ''}</span></th>`;
   }
   html += '<th class="dia-h" style="background:#1a3a5c">TOTAL</th></tr></thead><tbody>';
   const totalPorDia = {};
@@ -725,12 +747,14 @@ function renderGridEntrada() {
     html += `<tr><td class="maq-cell">${maq}</td>`;
     for (let d = 1; d <= dias; d++) {
       const we = esFinde(y, m, d);
+      const festivo = esFestivo(y, m, d);
+      const bloqueado = we || festivo;
       const reg = registros.find(r => r.y === y && r.m === m && r.d === d && r.maquina === maq);
       const v = reg ? reg.q : 0;
       totalMaq += v;
       totalPorDia[d] += v;
-      if (we) {
-        html += `<td class="we-cell" data-col="${d}"><input type="text" value="X" disabled></td>`;
+      if (bloqueado) {
+        html += `<td class="we-cell" data-col="${d}"><input type="text" value="X" disabled title="${festivo ? 'Día Festivo' : 'Fin de semana'}"></td>`;
       } else {
         html += `<td data-col="${d}"><input type="number" min="0" max="99" value="${v||''}" data-maq="${maq}" data-d="${d}" class="${v?'tiene':''}" onfocus="resaltarFilaColumna(this)" onblur="quitarResaltado()" oninput="actualizarCeldaGrid(this)"></td>`;
       }
@@ -741,8 +765,10 @@ function renderGridEntrada() {
   html += '<tr class="total-row"><td class="maq-cell">TOTAL DÍA</td>';
   for (let d = 1; d <= dias; d++) {
     const we = esFinde(y, m, d);
+    const festivo = esFestivo(y, m, d);
+    const bloqueado = we || festivo;
     granTotal += totalPorDia[d];
-    if (we) html += `<td data-col="${d}"></td>`;
+    if (bloqueado) html += `<td data-col="${d}"></td>`;
     else html += `<td data-col="${d}">${totalPorDia[d]||''}</td>`;
   }
   html += `<td id="granTotal">${granTotal||''}</td></tr></tbody></table>`;
@@ -796,7 +822,7 @@ function recalcularTotales(y, m) {
   maquinas.forEach(maq => {
     let totalMaq = 0;
     for (let d = 1; d <= dias; d++) {
-      if (esFinde(y, m, d)) continue;
+      if (esFinde(y, m, d) || esFestivo(y, m, d)) continue;
       const reg = registros.find(r => r.y === y && r.m === m && r.d === d && r.maquina === maq);
       const v = reg ? reg.q : 0;
       totalMaq += v;
@@ -810,7 +836,7 @@ function recalcularTotales(y, m) {
     const cells = totalRow.querySelectorAll('td');
     let idx = 1;
     for (let d = 1; d <= dias; d++) {
-      if (esFinde(y, m, d)) { idx++; continue; }
+      if (esFinde(y, m, d) || esFestivo(y, m, d)) { idx++; continue; }
       if (cells[idx]) cells[idx].textContent = totalPorDia[d] || '';
       idx++;
     }
@@ -950,7 +976,9 @@ function renderCalendario() {
   for (let d = 1; d <= dias; d++) {
     const ds = diaSemana(y, m, d);
     const we = ds >= 5;
-    html += `<th class="dia-header${we ? ' we' : ''}">${d}<span class="dia-letra">${DIAS_SEMANA[ds]}</span></th>`;
+    const festivo = esFestivo(y, m, d);
+    const bloqueado = we || festivo;
+    html += `<th class="dia-header${bloqueado ? ' we' : ''}">${d}<span class="dia-letra">${DIAS_SEMANA[ds]}${festivo ? ' 🎉' : ''}</span></th>`;
   }
   html += '<th class="dia-header" style="background:#1a3a5c">TOTAL</th></tr></thead><tbody>';
   const totalPorDia = {};
@@ -962,9 +990,11 @@ function renderCalendario() {
       const reg = registros.find(r => r.y === y && r.m === m && r.d === d && r.maquina === maq);
       const v = reg ? reg.q : 0;
       const we = diaSemana(y, m, d) >= 5;
+      const festivo = esFestivo(y, m, d);
+      const bloqueado = we || festivo;
       totalMaq += v;
       totalPorDia[d] += v;
-      if (we) html += `<td class="we"></td>`;
+      if (bloqueado) html += `<td class="we"></td>`;
       else if (v > 0) html += `<td class="con-sumo">${v}</td>`;
       else html += `<td class="sin-sumo"></td>`;
     }
@@ -983,12 +1013,14 @@ function renderCalendario() {
   for (let d = 1; d <= dias; d++) {
     const ds = diaSemana(y, m, d);
     const we = ds >= 5;
+    const festivo = esFestivo(y, m, d);
+    const bloqueado = we || festivo;
     const esHoy = (hoy.getFullYear() === y && hoy.getMonth() + 1 === m && hoy.getDate() === d);
     const total = totalPorDia[d];
-    resumenHtml += `<div class="dia-card${we ? ' we' : ''}${esHoy ? ' hoy' : ''}">
+    resumenHtml += `<div class="dia-card${bloqueado ? ' we' : ''}${esHoy ? ' hoy' : ''}">
       <div class="dia-num">${d}</div>
-      <div class="dia-info">${DIAS_SEMANA[ds]} · ${MESES_NOMBRE[m].substring(0,3).toUpperCase()}</div>
-      ${we ? '<div class="dia-info" style="color:#c0392b">Fin de semana</div>' : ''}
+      <div class="dia-info">${DIAS_SEMANA[ds]} · ${MESES_NOMBRE[m].substring(0,3).toUpperCase()}${festivo ? ' 🎉' : ''}</div>
+      ${bloqueado ? '<div class="dia-info" style="color:#c0392b">No laborable</div>' : ''}
       <div class="dia-total ${total > 0 ? 'ok' : 'zero'}">${total > 0 ? '✓ ' + total : '0'}</div>
     </div>`;
   }
@@ -1310,6 +1342,7 @@ function initGestion() {
         const d = JSON.parse(ev.target.result);
         const n = normalizarDatos(d);
         maquinas = n.maquinas; registros = n.registros; entradas = n.entradas;
+        if (d.festivos) { festivos = d.festivos; guardarFestivosLocal(); }
         guardarDatosLocal();
         iniciarApp();
       } catch(err) { alert('❌ Error: ' + err.message); }
@@ -1325,6 +1358,7 @@ function initGestion() {
         const n = normalizarDatos(d);
         if (!confirm(`Importar ${n.registros.length} registros. ¿Reemplazar?`)) return;
         maquinas = n.maquinas; registros = n.registros; entradas = n.entradas;
+        if (d.festivos) { festivos = d.festivos; guardarFestivosLocal(); }
         guardarDatosLocal();
         alert('✅ Importado');
       } catch(err) { alert('❌ Error: ' + err.message); }
@@ -1335,7 +1369,8 @@ function initGestion() {
 }
 
 function exportarJSON() {
-  const blob = new Blob([JSON.stringify({maquinas, registros, entradas}, null, 1)], {type:'application/json'});
+  // ➕ INCLUIDO: festivos en la exportación manual
+  const blob = new Blob([JSON.stringify({maquinas, registros, entradas, festivos}, null, 1)], {type:'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = `control_papel_${new Date().toISOString().slice(0,10)}.json`;
@@ -1347,7 +1382,9 @@ function confirmarReset() {
   maquinas = CANONICAS.slice();
   registros = [];
   entradas = [];
+  festivos = {};
   guardarDatosLocal();
+  guardarFestivosLocal();
   location.reload();
 }
 
