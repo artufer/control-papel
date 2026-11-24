@@ -305,7 +305,7 @@
 <!-- CALENDARIO PDF TRIMESTRAL -->
 <div class="panel" id="panel-pdf">
   <h2>📄 Calendario PDF Trimestral</h2>
-  <p style="color:#666;font-size:13px;margin-bottom:12px">Genera <b>4 hojas A4 horizontales</b> con 3 meses cada una. <b>Marca aquí los festivos</b> para que se bloqueen en toda la aplicación.</p>
+  <p style="color:#666;font-size:13px;margin-bottom:12px">Genera <b>4 hojas A4 horizontales</b> con 3 meses cada una. <b>Marca aquí los festivos</b> para que se bloqueen en toda la aplicación y se sincronicen automáticamente.</p>
   <div class="entrada-form">
     <h3 style="margin-top:0;color:#2c5f8d">1️⃣ Selecciona el año</h3>
     <div class="form-row">
@@ -395,6 +395,7 @@ let saveTimeout = null;
 let syncTimeout = null;
 let githubToken = localStorage.getItem('githubToken') || '';
 let fileSha = null;
+let syncInProgress = false;
 
 // ============ BOTÓN SUBIR ARRIBA ============
 (function() {
@@ -470,6 +471,14 @@ async function sincronizarConGitHub() {
     actualizarEstadoSync('offline', '⚠️ Sin token');
     return;
   }
+  if (syncInProgress) {
+    // Si ya hay una sincronización en curso, reprogramarla
+    clearTimeout(syncTimeout);
+    syncTimeout = setTimeout(() => sincronizarConGitHub(), 2000);
+    return;
+  }
+  
+  syncInProgress = true;
   mostrarIndicador('syncing');
   actualizarEstadoSync('pending', '☁️ Sincronizando...');
   
@@ -483,7 +492,7 @@ async function sincronizarConGitHub() {
       fileSha = getData.sha;
     }
     
-    // ➕ INCLUIDO: festivos en la sincronización
+    // INCLUIDO: festivos en la sincronización
     const contenido = JSON.stringify({maquinas, registros, entradas, festivos}, null, 1);
     const contenidoBase64 = btoa(unescape(encodeURIComponent(contenido)));
     
@@ -508,11 +517,14 @@ async function sincronizarConGitHub() {
     mostrarIndicador('error');
     actualizarEstadoSync('error', '❌ Error sync');
     fileSha = null;
+  } finally {
+    syncInProgress = false;
   }
 }
 
 async function forzarSincronizacion() {
   fileSha = null;
+  syncInProgress = false;
   await sincronizarConGitHub();
 }
 
@@ -594,7 +606,7 @@ async function cargarDatos() {
         registros = n.registros.sort((a,b)=>a.y-b.y||a.m-b.m||a.d-b.d);
         entradas = n.entradas.sort((a,b)=>b.fecha.localeCompare(a.fecha));
         
-        // ➕ INCLUIDO: Cargar festivos desde GitHub si existen
+        // INCLUIDO: Cargar festivos desde GitHub si existen
         if (json.festivos) {
           festivos = json.festivos;
           guardarFestivosLocal();
@@ -618,7 +630,7 @@ async function cargarDatos() {
     registros = n.registros.sort((a,b)=>a.y-b.y||a.m-b.m||a.d-b.d);
     entradas = n.entradas.sort((a,b)=>b.fecha.localeCompare(a.fecha));
     
-    // ➕ INCLUIDO: Cargar festivos desde archivo local si existen
+    // INCLUIDO: Cargar festivos desde archivo local si existen
     if (data.festivos) {
       festivos = data.festivos;
       guardarFestivosLocal();
@@ -695,7 +707,7 @@ function diasEnMes(y,m) { return new Date(y,m,0).getDate(); }
 function diaSemana(y,m,d) { const w = new Date(y,m-1,d).getDay(); return w===0?6:w-1; }
 function esFinde(y,m,d) { return diaSemana(y,m,d) >= 5; }
 
-// ➕ NUEVA FUNCIÓN: Detectar si un día es festivo
+// NUEVA FUNCIÓN: Detectar si un día es festivo
 function esFestivo(y, m, d) {
   const clave = `${y}-${String(m).padStart(2, '0')}`;
   return (festivos[clave] || []).includes(d);
@@ -1200,6 +1212,7 @@ function cargarFestivosAnio() {
   document.getElementById('festivosContainer').innerHTML = html;
 }
 
+// FUNCIÓN MODIFICADA: Sincronización inmediata al cambiar festivos
 function toggleFestivo(anio, mes, dia) {
   const clave = `${anio}-${String(mes).padStart(2,'0')}`;
   if (!festivos[clave]) festivos[clave] = [];
@@ -1209,16 +1222,35 @@ function toggleFestivo(anio, mes, dia) {
   festivos[clave].sort((a,b) => a-b);
   guardarFestivosLocal();
   cargarFestivosAnio();
-  programarSincronizacion(); // ← AÑADIR ESTA LÍNEA
+  
+  // 🚀 Forzar sincronización inmediata con GitHub
+  if (githubToken) {
+    fileSha = null; // Resetear SHA para forzar lectura fresca
+    syncInProgress = false; // Permitir nueva sincronización
+    mostrarIndicador('syncing');
+    actualizarEstadoSync('pending', '☁️ Sincronizando festivos...');
+    sincronizarConGitHub();
+  }
 }
+
+// FUNCIÓN MODIFICADA: Sincronización inmediata al limpiar festivos
 function limpiarFestivosAnio() {
   const anio = document.getElementById('pdfAnio').value;
   if (!confirm(`¿Quitar todos los festivos de ${anio}?`)) return;
   Object.keys(festivos).forEach(k => { if (k.startsWith(anio + '-')) delete festivos[k]; });
   guardarFestivosLocal();
   cargarFestivosAnio();
-  programarSincronizacion(); // ← AÑADIR ESTA LÍNEA
+  
+  // 🚀 Forzar sincronización inmediata
+  if (githubToken) {
+    fileSha = null;
+    syncInProgress = false;
+    mostrarIndicador('syncing');
+    actualizarEstadoSync('pending', '☁️ Sincronizando festivos...');
+    sincronizarConGitHub();
+  }
 }
+
 function getDiasDelMes(anio, mes) {
   const clave = `${anio}-${String(mes).padStart(2,'0')}`;
   const festivosMes = festivos[clave] || [];
@@ -1369,7 +1401,7 @@ function initGestion() {
 }
 
 function exportarJSON() {
-  // ➕ INCLUIDO: festivos en la exportación manual
+  // INCLUIDO: festivos en la exportación manual
   const blob = new Blob([JSON.stringify({maquinas, registros, entradas, festivos}, null, 1)], {type:'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
