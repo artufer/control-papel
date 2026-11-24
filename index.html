@@ -460,21 +460,22 @@ function normalizarDatos(d) {
   return {maquinas: maqsOrdenadas, registros: regs, entradas: ents};
 }
 
-// ============ SINCRONIZACIÓN CON GITHUB ============
+// ============ SINCRONIZACIÓN CON GITHUB (CON REINTENTOS) ============
 function programarSincronizacion() {
   clearTimeout(syncTimeout);
   syncTimeout = setTimeout(() => sincronizarConGitHub(), 1500);
 }
 
-async function sincronizarConGitHub() {
+async function sincronizarConGitHub(reintentos = 0) {
   if (!githubToken) {
     actualizarEstadoSync('offline', '⚠️ Sin token');
     return;
   }
+  
+  // Evitar solapamientos
   if (syncInProgress) {
-    // Si ya hay una sincronización en curso, reprogramarla
     clearTimeout(syncTimeout);
-    syncTimeout = setTimeout(() => sincronizarConGitHub(), 2000);
+    syncTimeout = setTimeout(() => sincronizarConGitHub(reintentos), 2000);
     return;
   }
   
@@ -484,38 +485,64 @@ async function sincronizarConGitHub() {
   
   try {
     const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+    const headers = { 'Authorization': `token ${githubToken}` };
     
-    if (!fileSha) {
-      const getRes = await fetch(url, { headers: { 'Authorization': `token ${githubToken}` } });
-      if (!getRes.ok) throw new Error('No se pudo leer: ' + getRes.status);
+    // 1. OBTENER EL SHA ACTUAL (siempre fresco)
+    let shaActual = null;
+    const getRes = await fetch(url, { headers });
+    
+    if (getRes.status === 404) {
+      shaActual = null; // El archivo no existe → lo crearemos
+    } else if (!getRes.ok) {
+      throw new Error(`Error al leer (${getRes.status}): ${getRes.statusText}`);
+    } else {
       const getData = await getRes.json();
-      fileSha = getData.sha;
+      shaActual = getData.sha;
     }
     
-    // INCLUIDO: festivos en la sincronización
+    // 2. PREPARAR CONTENIDO
     const contenido = JSON.stringify({maquinas, registros, entradas, festivos}, null, 1);
     const contenidoBase64 = btoa(unescape(encodeURIComponent(contenido)));
     
+    // 3. ENVIAR (PUT)
+    const body = { 
+      message: `Actualización - ${new Date().toISOString()}`, 
+      content: contenidoBase64, 
+      branch: GITHUB_BRANCH 
+    };
+    if (shaActual) body.sha = shaActual;
+    
     const putRes = await fetch(url, {
       method: 'PUT',
-      headers: { 'Authorization': `token ${githubToken}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: `Actualización - ${new Date().toISOString()}`, content: contenidoBase64, sha: fileSha, branch: GITHUB_BRANCH })
+      headers: { ...headers, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
     });
     
     if (!putRes.ok) {
       const errData = await putRes.json();
-      throw new Error(errData.message || putRes.status);
+      const errMsg = errData.message || putRes.status;
+      
+      // 🔁 REINTENTO AUTOMÁTICO ante conflicto SHA (409/422)
+      if ((putRes.status === 409 || putRes.status === 422) && reintentos < 3) {
+        console.log(`⚠️ Conflicto SHA, reintentando (${reintentos + 1}/3)...`);
+        syncInProgress = false;
+        await new Promise(r => setTimeout(r, 1500));
+        return sincronizarConGitHub(reintentos + 1);
+      }
+      
+      throw new Error(errMsg);
     }
     
     const putData = await putRes.json();
-    fileSha = putData.content.sha;
+    fileSha = putData.content?.sha || null;
     
     mostrarIndicador('synced');
     actualizarEstadoSync('ok', '✅ Sincronizado');
+    console.log('✅ Sincronización correcta');
   } catch(err) {
-    console.error('Error sincronizando:', err);
+    console.error('❌ Error sincronizando:', err);
     mostrarIndicador('error');
-    actualizarEstadoSync('error', '❌ Error sync');
+    actualizarEstadoSync('error', '❌ Error: ' + err.message);
     fileSha = null;
   } finally {
     syncInProgress = false;
@@ -606,7 +633,7 @@ async function cargarDatos() {
         registros = n.registros.sort((a,b)=>a.y-b.y||a.m-b.m||a.d-b.d);
         entradas = n.entradas.sort((a,b)=>b.fecha.localeCompare(a.fecha));
         
-        // INCLUIDO: Cargar festivos desde GitHub si existen
+        // Cargar festivos desde GitHub si existen
         if (json.festivos) {
           festivos = json.festivos;
           guardarFestivosLocal();
@@ -630,7 +657,7 @@ async function cargarDatos() {
     registros = n.registros.sort((a,b)=>a.y-b.y||a.m-b.m||a.d-b.d);
     entradas = n.entradas.sort((a,b)=>b.fecha.localeCompare(a.fecha));
     
-    // INCLUIDO: Cargar festivos desde archivo local si existen
+    // Cargar festivos desde archivo local si existen
     if (data.festivos) {
       festivos = data.festivos;
       guardarFestivosLocal();
@@ -707,7 +734,7 @@ function diasEnMes(y,m) { return new Date(y,m,0).getDate(); }
 function diaSemana(y,m,d) { const w = new Date(y,m-1,d).getDay(); return w===0?6:w-1; }
 function esFinde(y,m,d) { return diaSemana(y,m,d) >= 5; }
 
-// NUEVA FUNCIÓN: Detectar si un día es festivo
+// Detectar si un día es festivo
 function esFestivo(y, m, d) {
   const clave = `${y}-${String(m).padStart(2, '0')}`;
   return (festivos[clave] || []).includes(d);
@@ -1212,7 +1239,7 @@ function cargarFestivosAnio() {
   document.getElementById('festivosContainer').innerHTML = html;
 }
 
-// FUNCIÓN MODIFICADA: Sincronización inmediata al cambiar festivos
+// Sincronización inmediata al cambiar festivos
 function toggleFestivo(anio, mes, dia) {
   const clave = `${anio}-${String(mes).padStart(2,'0')}`;
   if (!festivos[clave]) festivos[clave] = [];
@@ -1225,15 +1252,15 @@ function toggleFestivo(anio, mes, dia) {
   
   // 🚀 Forzar sincronización inmediata con GitHub
   if (githubToken) {
-    fileSha = null; // Resetear SHA para forzar lectura fresca
-    syncInProgress = false; // Permitir nueva sincronización
+    fileSha = null;
+    syncInProgress = false;
     mostrarIndicador('syncing');
     actualizarEstadoSync('pending', '☁️ Sincronizando festivos...');
     sincronizarConGitHub();
   }
 }
 
-// FUNCIÓN MODIFICADA: Sincronización inmediata al limpiar festivos
+// Sincronización inmediata al limpiar festivos
 function limpiarFestivosAnio() {
   const anio = document.getElementById('pdfAnio').value;
   if (!confirm(`¿Quitar todos los festivos de ${anio}?`)) return;
@@ -1401,7 +1428,6 @@ function initGestion() {
 }
 
 function exportarJSON() {
-  // INCLUIDO: festivos en la exportación manual
   const blob = new Blob([JSON.stringify({maquinas, registros, entradas, festivos}, null, 1)], {type:'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
