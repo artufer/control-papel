@@ -1209,16 +1209,16 @@ function toggleFestivo(anio, mes, dia) {
   festivos[clave].sort((a,b) => a-b);
   guardarFestivosLocal();
   cargarFestivosAnio();
+  programarSincronizacion(); // ← AÑADIR ESTA LÍNEA
 }
-
 function limpiarFestivosAnio() {
   const anio = document.getElementById('pdfAnio').value;
   if (!confirm(`¿Quitar todos los festivos de ${anio}?`)) return;
   Object.keys(festivos).forEach(k => { if (k.startsWith(anio + '-')) delete festivos[k]; });
   guardarFestivosLocal();
   cargarFestivosAnio();
+  programarSincronizacion(); // ← AÑADIR ESTA LÍNEA
 }
-
 function getDiasDelMes(anio, mes) {
   const clave = `${anio}-${String(mes).padStart(2,'0')}`;
   const festivosMes = festivos[clave] || [];
