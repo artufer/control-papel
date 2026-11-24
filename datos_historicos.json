@@ -6669,5 +6669,169 @@
    "cajas": 10,
    "notas": "Regente de Palacio"
   }
- ]
+ ],
+ "festivos": {
+  "2026": [
+   {
+    "nombre": "Día de Año Nuevo",
+    "fecha": "2026-01-01",
+    "anio": "2026"
+   },
+   {
+    "anio": "2026",
+    "nombre": "Día de Reyes",
+    "fecha": "2026-01-06"
+   },
+   {
+    "nombre": "Día de Jueves Santo",
+    "anio": "2026",
+    "fecha": "2026-04-02"
+   },
+   {
+    "fecha": "2026-04-03",
+    "anio": "2026",
+    "nombre": "Día de Viernes Santo"
+   },
+   {
+    "anio": "2026",
+    "fecha": "2026-04-23",
+    "nombre": "Día de la Comunidad de Castilla y León"
+   },
+   {
+    "nombre": "Fiesta del Trabajo",
+    "anio": "2026",
+    "fecha": "2026-05-01"
+   },
+   {
+    "anio": "2026",
+    "fecha": "2026-06-12",
+    "nombre": "Festividad de la Diputación (Sagrado Corazón)"
+   },
+   {
+    "nombre": "Día de San Juan",
+    "fecha": "2026-06-24",
+    "anio": "2026"
+   },
+   {
+    "nombre": "Día de San Froilán",
+    "fecha": "2026-10-05",
+    "anio": "2026"
+   },
+   {
+    "nombre": "Fiesta Nacional de España",
+    "anio": "2026",
+    "fecha": "2026-10-12"
+   },
+   {
+    "nombre": "Compensación Todos los Santos",
+    "anio": "2026",
+    "fecha": "2026-11-02"
+   },
+   {
+    "nombre": "Compensación Día de la Constitución",
+    "fecha": "2026-12-07",
+    "anio": "2026"
+   },
+   {
+    "anio": "2026",
+    "nombre": "Día de la Inmaculada",
+    "fecha": "2026-12-08"
+   },
+   {
+    "anio": "2026",
+    "fecha": "2026-12-24",
+    "nombre": "Día de Nochebuena"
+   },
+   {
+    "anio": "2026",
+    "fecha": "2026-12-25",
+    "nombre": "Día de Navidad"
+   },
+   {
+    "anio": "2026",
+    "fecha": "2026-12-31",
+    "nombre": "Día de Nochevieja"
+   }
+  ],
+  "2027": [
+   {
+    "nombre": "Día de Año nuevo",
+    "fecha": "2027-01-01",
+    "anio": "2027"
+   },
+   {
+    "nombre": "Día de Reyes",
+    "anio": "2027",
+    "fecha": "2027-01-06"
+   },
+   {
+    "fecha": "2027-03-25",
+    "anio": "2027",
+    "nombre": "Día de Jueves Santo"
+   },
+   {
+    "fecha": "2027-03-26",
+    "anio": "2027",
+    "nombre": "Día de Viernes Santo"
+   },
+   {
+    "anio": "2027",
+    "fecha": "2027-04-23",
+    "nombre": "Día de la Comunidad de Castilla Y León"
+   },
+   {
+    "fecha": "2027-06-04",
+    "nombre": "Día del Sagrado Corazón de Jesús",
+    "anio": "2027"
+   },
+   {
+    "fecha": "2027-06-24",
+    "nombre": "Día de San Juan",
+    "anio": "2027"
+   },
+   {
+    "fecha": "2027-08-16",
+    "anio": "2027",
+    "nombre": "Compensación Día de la Asunción"
+   },
+   {
+    "nombre": "Día de San Froilán",
+    "fecha": "2027-10-05",
+    "anio": "2027"
+   },
+   {
+    "fecha": "2027-10-12",
+    "nombre": "Día Fiesta Nacional de España",
+    "anio": "2027"
+   },
+   {
+    "fecha": "2027-11-01",
+    "anio": "2027",
+    "nombre": "Día de todos los Santos"
+   },
+   {
+    "fecha": "2027-12-06",
+    "nombre": "Día de la Constitución",
+    "anio": "2027"
+   },
+   {
+    "anio": "2027",
+    "nombre": "Día de la Inmaculada",
+    "fecha": "2027-12-08"
+   },
+   {
+    "anio": "2027",
+    "fecha": "2027-12-24",
+    "nombre": "Día de Nochebuena"
+   },
+   {
+    "fecha": "2027-12-31",
+    "nombre": "Dia de Nochevieja",
+    "anio": "2027"
+   }
+  ],
+  "2026-01": [
+   1
+  ]
+ }
 }
